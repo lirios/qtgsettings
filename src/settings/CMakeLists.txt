@@ -61,7 +61,7 @@ install(
       ${Hawaii_HEADERS}
       qgsettings.h
     DESTINATION
-      ${HAWAII_INCLUDEDIR}/Hawaii
+      ${HAWAII_INCLUDEDIR}/hawaii
     COMPONENT
       Devel
 )
