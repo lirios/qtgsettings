@@ -53,7 +53,7 @@ install(FILES ${Hawaii_CamelCase_HEADERS}
         DESTINATION ${HAWAII_INCLUDEDIR}/Hawaii
         COMPONENT Devel)
 
-install(TARGETS Hawaii EXPORT HawaiiTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS Hawaii EXPORT HawaiiTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(
     FILES
