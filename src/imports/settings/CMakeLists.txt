@@ -18,6 +18,6 @@ target_link_libraries(settingsplugin
                       Hawaii::Hawaii)
 
 install(FILES qmldir plugins.qmltypes
-    DESTINATION ${QML_INSTALL_DIR}/org/hawaii/settings)
+    DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/settings)
 install(TARGETS settingsplugin
-    DESTINATION ${QML_INSTALL_DIR}/org/hawaii/settings)
+    DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/settings)

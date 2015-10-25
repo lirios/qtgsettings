@@ -36,7 +36,7 @@ public:
     void registerTypes(const char *uri)
     {
         // @uri org.hawaii.settings
-        Q_ASSERT(uri == QStringLiteral("org.hawaii.settings"));
+        Q_ASSERT(uri == QStringLiteral("org.hawaiios.settings"));
 
         qmlRegisterType<QmlGSettings>(uri, 0, 2, "Settings");
         qmlRegisterUncreatableType<QmlGSettingsSchema>(uri, 0, 2, "SettingsSchema",
