@@ -24,7 +24,8 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "qgsettings.h"
+#include <Hawaii/QGSettings>
+
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
