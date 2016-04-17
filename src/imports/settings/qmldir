@@ -1,4 +1,0 @@
-module org.hawaiios.settings
-plugin settingsplugin
-classname SettingPlugin
-typeinfo plugins.qmltypes
