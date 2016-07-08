@@ -1,0 +1,4 @@
+module Hawaii.Settings
+plugin hawaiisettings
+classname HawaiiSettingsPlugin
+typeinfo plugins.qmltypes
