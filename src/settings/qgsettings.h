@@ -29,7 +29,7 @@
 
 #include <QtCore/QObject>
 
-#include <Hawaii/Settings/hawaii_settings_export.h>
+#include <Hawaii/settings/hawaii_settings_export.h>
 
 namespace Hawaii
 {
