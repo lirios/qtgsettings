@@ -12,15 +12,15 @@ add_definitions(
 set(tst_qgsettings_SRCS
     tst_qgsettings.cpp
 )
-add_executable(tst_qgsettings ${tst_qgsettings_SRCS})
+add_executable(tst_qgsettings EXCLUDE_FROM_ALL ${tst_qgsettings_SRCS})
 target_link_libraries(tst_qgsettings Qt5::Test Hawaii::Settings)
-add_test(hawaii-test-qgsettings tst_qgsettings)
-ecm_mark_as_test(tst_qgsettings)
+add_test(tst_qgsettings tst_qgsettings)
+add_dependencies(check tst_qgsettings)
 
 set(tst_qmlgsettings_SRCS
     tst_qmlgsettings.cpp
 )
-add_executable(tst_qmlgsettings ${tst_qmlgsettings_SRCS})
+add_executable(tst_qmlgsettings EXCLUDE_FROM_ALL ${tst_qmlgsettings_SRCS})
 target_link_libraries(tst_qmlgsettings Qt5::Quick Qt5::QuickTest)
-add_test(hawaii-test-qmlgsettings tst_qmlgsettings)
-ecm_mark_as_test(tst_qmlgsettings)
+add_test(tst_qmlgsettings tst_qmlgsettings)
+add_dependencies(check tst_qmlgsettings)
