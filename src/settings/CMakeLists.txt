@@ -26,7 +26,11 @@ target_link_libraries(HawaiiSettings
 
 generate_export_header(HawaiiSettings EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/Hawaii/settings/hawaii_settings_export.h")
 
-target_include_directories(HawaiiSettings INTERFACE "$<INSTALL_INTERFACE:${HAWAII_INCLUDEDIR}>")
+target_include_directories(HawaiiSettings
+    INTERFACE
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/Hawaii>"
+        "$<INSTALL_INTERFACE:${HAWAII_INCLUDEDIR}>"
+)
 
 set_target_properties(HawaiiSettings PROPERTIES
                       VERSION ${PROJECT_VERSION}
