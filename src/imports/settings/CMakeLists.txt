@@ -1,7 +1,7 @@
 include_directories(
-    ${CMAKE_BINARY_DIR}/src
-    ${CMAKE_BINARY_DIR}/src/settings
-    ${CMAKE_BINARY_DIR}/src/settings/Hawaii
+    "${CMAKE_CURRENT_BINARY_DIR}/../../src"
+    "${CMAKE_CURRENT_BINARY_DIR}/../../src/settings"
+    "${CMAKE_CURRENT_BINARY_DIR}/../../src/settings/Hawaii"
 )
 
 set(SOURCES

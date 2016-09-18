@@ -1,6 +1,6 @@
 include_directories(
-    ${CMAKE_BINARY_DIR}/headers
-    ${CMAKE_CURRENT_BINARY_DIR}
+    "${CMAKE_CURRENT_BINARY_DIR}/../../headers"
+    "${CMAKE_CURRENT_BINARY_DIR}"
     ${gio_INCLUDE_DIRS}
 )
 
@@ -24,7 +24,7 @@ target_link_libraries(HawaiiSettings
 
 ##############################################################################
 
-generate_export_header(HawaiiSettings EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/Hawaii/settings/hawaii_settings_export.h)
+generate_export_header(HawaiiSettings EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/Hawaii/settings/hawaii_settings_export.h")
 
 target_include_directories(HawaiiSettings INTERFACE "$<INSTALL_INTERFACE:${HAWAII_INCLUDEDIR}>")
 
@@ -41,7 +41,7 @@ ecm_generate_headers(HawaiiSettings_CamelCase_HEADERS
   REQUIRED_HEADERS
     HawaiiSettings_HEADERS
   OUTPUT_DIR
-    ${CMAKE_CURRENT_BINARY_DIR}/Hawaii
+    "${CMAKE_CURRENT_BINARY_DIR}/Hawaii"
 )
 install(FILES ${HawaiiSettings_CamelCase_HEADERS}
         DESTINATION ${HAWAII_INCLUDEDIR}/Settings
@@ -51,7 +51,7 @@ install(TARGETS HawaiiSettings EXPORT HawaiiSettingsTargets ${KDE_INSTALL_TARGET
 
 install(
     FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/Hawaii/settings/hawaii_settings_export.h
+      "${CMAKE_CURRENT_BINARY_DIR}/Hawaii/settings/hawaii_settings_export.h"
       ${HawaiiSettings_HEADERS}
       qgsettings.h
     DESTINATION
