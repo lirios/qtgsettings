@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  * Copyright (C) 2013 Canonical Ltd.
@@ -24,12 +24,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <Hawaii/Settings/QGSettings>
+#include <Vibe/Settings/QGSettings>
 
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
-using namespace Hawaii;
+using namespace Vibe;
 
 QmlGSettings::QmlGSettings(QObject *parent)
         : QQmlPropertyMap(this, parent), m_schema(new QmlGSettingsSchema(this)),

@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2012-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
@@ -26,9 +26,9 @@
 
 #include <QtTest/QtTest>
 
-#include <Hawaii/Settings/QGSettings>
+#include <Vibe/Settings/QGSettings>
 
-using namespace Hawaii;
+using namespace Vibe;
 
 class TestQGSettings : public QObject
 {
@@ -49,13 +49,13 @@ private Q_SLOTS:
         qDebug() << "Using schema directory:" << qgetenv("GSETTINGS_SCHEMA_DIR");
         QCOMPARE(qgetenv("GSETTINGS_BACKEND"), QByteArrayLiteral("memory"));
 
-        QVERIFY2(QGSettings::isSchemaInstalled("org.hawaiios.gsettings.test"),
-                 "Schema org.hawaiios.gsettings.test must be installed");
+        QVERIFY2(QGSettings::isSchemaInstalled("io.liri.gsettings.test"),
+                 "Schema io.liri.gsettings.test must be installed");
 
-        settings = new QGSettings("org.hawaiios.gsettings.test",
-                                  "/org/hawaiios/gsettings/test/");
+        settings = new QGSettings("io.liri.gsettings.test",
+                                  "/io/liri/gsettings/test/");
         QVERIFY2(settings->isValid(),
-                 "Settings for org.hawaiios.gsettings.test must be valid");
+                 "Settings for io.liri.gsettings.test must be valid");
     }
 
     void cleanupTestCase()
@@ -200,17 +200,17 @@ private Q_SLOTS:
 
     void invalidSchemaNotInstalled()
     {
-        QVERIFY2(!QGSettings::isSchemaInstalled("org.hawaiios.gsettings.invalid.test"),
-                 "Schema org.hawaiios.gsettings.invalid.test must not be installed");
+        QVERIFY2(!QGSettings::isSchemaInstalled("io.liri.gsettings.invalid.test"),
+                 "Schema io.liri.gsettings.invalid.test must not be installed");
     }
 
     void invalidSchema()
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings("org.hawaiios.gsettings.invalid.test");
+        QGSettings *invalidSettings = new QGSettings("io.liri.gsettings.invalid.test");
         QVERIFY2(!invalidSettings->isValid(),
-                 "Settings for org.hawaiios.gsettings.invalidtest must not be valid");
+                 "Settings for io.liri.gsettings.invalidtest must not be valid");
         invalidSettings->deleteLater();
     }
 
@@ -218,10 +218,10 @@ private Q_SLOTS:
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings("org.hawaiios.gsettings.test",
-                                                     "/org/hawaiios/gsettings/invalid/test/");
+        QGSettings *invalidSettings = new QGSettings("io.liri.gsettings.test",
+                                                     "/io/liri/gsettings/invalid/test/");
         QVERIFY2(!invalidSettings->isValid(),
-                 "Path /org/hawaiios/gsettings/invalid/test must not be found");
+                 "Path /io/liri/gsettings/invalid/test must not be found");
         invalidSettings->deleteLater();
     }
 

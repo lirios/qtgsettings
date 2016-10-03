@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  * Copyright (C) 2013 Canonical Ltd.
@@ -24,19 +24,19 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef HAWAII_QGSETTINGS_H
-#define HAWAII_QGSETTINGS_H
+#ifndef VIBE_QGSETTINGS_H
+#define VIBE_QGSETTINGS_H
 
 #include <QtCore/QObject>
 
-#include <Hawaii/settings/hawaii_settings_export.h>
+#include <Vibe/settings/vibe_settings_export.h>
 
-namespace Hawaii
+namespace Vibe
 {
 
 class QGSettingsPrivate;
 
-class HAWAIISETTINGS_EXPORT QGSettings : public QObject
+class VIBESETTINGS_EXPORT QGSettings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid CONSTANT)
@@ -70,6 +70,6 @@ private:
     QGSettingsPrivate *const d_ptr;
 };
 
-} // namespace Hawaii
+} // namespace Vibe
 
-#endif // HAWAII_QGSETTINGS_H
+#endif // VIBE_QGSETTINGS_H

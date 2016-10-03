@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
@@ -30,7 +30,7 @@
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
-class HawaiiSettingsPlugin : public QQmlExtensionPlugin
+class VibeSettingsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
@@ -38,8 +38,8 @@ class HawaiiSettingsPlugin : public QQmlExtensionPlugin
 public:
     void registerTypes(const char *uri)
     {
-        // @uri Hawaii.Settings
-        Q_ASSERT(uri == QStringLiteral("Hawaii.Settings"));
+        // @uri Vibe.Settings
+        Q_ASSERT(uri == QStringLiteral("Vibe.Settings"));
 
         qmlRegisterType<QmlGSettings>(uri, 1, 0, "Settings");
         qmlRegisterUncreatableType<QmlGSettingsSchema>(

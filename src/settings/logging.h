@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  *

@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
@@ -26,7 +26,7 @@
 
 import QtQuick 2.0
 import QtTest 1.0
-import Hawaii.Settings 1.0
+import Vibe.Settings 1.0
 
 // Some tests start with a number to make sure order
 // of execution is respected, in fact we need to test
@@ -40,14 +40,14 @@ TestCase {
 
     Settings {
         id: settings
-        schema.id: "org.hawaiios.gsettings.test"
-        schema.path: "/org/hawaiios/gsettings/test/"
+        schema.id: "io.liri.gsettings.test"
+        schema.path: "/io/liri/gsettings/test/"
         onValueChanged: changes.push([key, value])
     }
 
     Settings {
         id: invalidSettings
-        schema.id: "org.hawaiios.gsettings.invalid.test"
+        schema.id: "io.liri.gsettings.invalid.test"
     }
 
     function test_000_valid() {

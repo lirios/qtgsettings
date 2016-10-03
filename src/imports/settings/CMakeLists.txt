@@ -1,7 +1,7 @@
 include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}/../../src"
     "${CMAKE_CURRENT_BINARY_DIR}/../../src/settings"
-    "${CMAKE_CURRENT_BINARY_DIR}/../../src/settings/Hawaii"
+    "${CMAKE_CURRENT_BINARY_DIR}/../../src/settings/Vibe"
 )
 
 set(SOURCES
@@ -16,9 +16,9 @@ target_link_libraries(hawaiisettings
                       Qt5::Gui
                       Qt5::Qml
                       Qt5::Quick
-                      Hawaii::Settings)
+                      Vibe::Settings)
 
 install(TARGETS hawaiisettings
-        LIBRARY DESTINATION ${QML_INSTALL_DIR}/Hawaii/Settings)
+        LIBRARY DESTINATION ${QML_INSTALL_DIR}/Vibe/Settings)
 install(FILES qmldir plugins.qmltypes
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/Settings)
+        DESTINATION ${QML_INSTALL_DIR}/Vibe/Settings)

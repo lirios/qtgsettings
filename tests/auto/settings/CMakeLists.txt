@@ -1,7 +1,7 @@
 include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}/../../src"
     "${CMAKE_CURRENT_BINARY_DIR}/../../src/core"
-    "${CMAKE_CURRENT_BINARY_DIR}/../../src/core/Hawaii"
+    "${CMAKE_CURRENT_BINARY_DIR}/../../src/core/Vibe"
 )
 
 add_definitions(
@@ -13,7 +13,7 @@ set(tst_qgsettings_SRCS
     tst_qgsettings.cpp
 )
 add_executable(tst_qgsettings EXCLUDE_FROM_ALL ${tst_qgsettings_SRCS})
-target_link_libraries(tst_qgsettings Qt5::Test Hawaii::Settings)
+target_link_libraries(tst_qgsettings Qt5::Test Vibe::Settings)
 add_test(tst_qgsettings tst_qgsettings)
 add_dependencies(check tst_qgsettings)
 

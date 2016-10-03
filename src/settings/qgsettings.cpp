@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  * Copyright (C) 2013 Canonical Ltd.
@@ -33,9 +33,9 @@ extern "C" {
 #include <gio/gio.h>
 }
 
-Q_LOGGING_CATEGORY(QGSETTINGS, "hawaii.qgsettings")
+Q_LOGGING_CATEGORY(QGSETTINGS, "vibe.qgsettings")
 
-namespace Hawaii
+namespace Vibe
 {
 
 /*
@@ -270,6 +270,6 @@ bool QGSettings::isSchemaInstalled(const QString &schemaId)
     }
 }
 
-} // namespace Hawaii
+} // namespace Vibe
 
 #include "moc_qgsettings.cpp"

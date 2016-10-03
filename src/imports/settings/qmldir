@@ -1,4 +1,4 @@
-module Hawaii.Settings
+module Vibe.Settings
 plugin hawaiisettings
-classname HawaiiSettingsPlugin
+classname VibeSettingsPlugin
 typeinfo plugins.qmltypes

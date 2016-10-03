@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  *
@@ -25,7 +25,7 @@
 
 #include "qmlgsettingsschema.h"
 
-Q_LOGGING_CATEGORY(SETTINGS, "hawaii.qml.settings")
+Q_LOGGING_CATEGORY(SETTINGS, "vibe.settings")
 
 QmlGSettingsSchema::QmlGSettingsSchema(QObject *parent)
     : QObject(parent)

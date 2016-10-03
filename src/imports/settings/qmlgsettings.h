@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Vibe.
  *
  * Copyright (C) 2015 Pier Luigi Fiorini
  *
@@ -29,7 +29,7 @@
 #include <QtQml/QQmlPropertyMap>
 #include <QtQml/QQmlParserStatus>
 
-namespace Hawaii {
+namespace Vibe {
 class QGSettings;
 }
 
@@ -57,7 +57,7 @@ protected:
 
 private:
     QmlGSettingsSchema *m_schema;
-    Hawaii::QGSettings *m_settings;
+    Vibe::QGSettings *m_settings;
 };
 
 #endif // QMLGSETTINGS_H
