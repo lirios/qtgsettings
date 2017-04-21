@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -23,13 +20,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef QMLGSETTINGSSCHEMA_H
-#define QMLGSETTINGSSCHEMA_H
+#pragma once
 
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QObject>
 
-Q_DECLARE_LOGGING_CATEGORY(SETTINGS)
+Q_DECLARE_LOGGING_CATEGORY(QTGSETTINGS)
 
 class QmlGSettings;
 
@@ -66,5 +62,3 @@ private:
 
     friend class QmlGSettings;
 };
-
-#endif // QMLGSETTINGSSCHEMA_H

@@ -1,11 +1,8 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2013 Canonical Ltd.
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -24,12 +21,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <Vibe/Settings/QGSettings>
+#include <QtGSettings/QGSettings>
 
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
-using namespace Vibe;
+using namespace QtGSettings;
 
 QmlGSettings::QmlGSettings(QObject *parent)
         : QQmlPropertyMap(this, parent), m_schema(new QmlGSettingsSchema(this)),
@@ -86,8 +83,6 @@ QVariant QmlGSettings::updateValue(const QString &key, const QVariant &input)
         return input;
 
     // Unable to set value, return old value
-    qCWarning(SETTINGS) << "Unable to set value for" << key;
+    qCWarning(QTGSETTINGS) << "Unable to set value for" << key;
     return m_settings->value(key);
 }
-
-#include "moc_qmlgsettings.cpp"

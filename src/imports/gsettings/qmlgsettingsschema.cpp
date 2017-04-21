@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -25,7 +22,7 @@
 
 #include "qmlgsettingsschema.h"
 
-Q_LOGGING_CATEGORY(SETTINGS, "vibe.settings")
+Q_LOGGING_CATEGORY(QTGSETTINGS, "qtsettings")
 
 QmlGSettingsSchema::QmlGSettingsSchema(QObject *parent)
     : QObject(parent)
@@ -50,7 +47,7 @@ QString QmlGSettingsSchema::id() const
 void QmlGSettingsSchema::setId(const QString &id)
 {
     if (!m_schemaId.isEmpty()) {
-        qCWarning(SETTINGS) << "Schema identifier can only be set once, at creation time";
+        qCWarning(QTGSETTINGS) << "Schema identifier can only be set once, at creation time";
         return;
     }
 
@@ -65,7 +62,7 @@ QString QmlGSettingsSchema::path() const
 void QmlGSettingsSchema::setPath(const QString &path)
 {
     if (!m_path.isEmpty()) {
-        qCWarning(SETTINGS) << "Schema path can only be set once, at creation time";
+        qCWarning(QTGSETTINGS) << "Schema path can only be set once, at creation time";
         return;
     }
 
@@ -76,5 +73,3 @@ QStringList QmlGSettingsSchema::keys() const
 {
     return m_keys;
 }
-
-#include "moc_qmlgsettingsschema.cpp"

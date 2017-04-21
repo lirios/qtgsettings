@@ -1,0 +1,4 @@
+module QtGSettings
+plugin qtgsettingsplugin
+classname QtGSettingsPlugin
+typeinfo plugins.qmltypes

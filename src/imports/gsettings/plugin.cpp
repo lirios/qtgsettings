@@ -1,12 +1,8 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *    Michael Spencer <sonrisesoftware@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -30,21 +26,20 @@
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
-class VibeSettingsPlugin : public QQmlExtensionPlugin
+class QtGSettingsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
-
 public:
     void registerTypes(const char *uri)
     {
-        // @uri Vibe.Settings
-        Q_ASSERT(uri == QStringLiteral("Vibe.Settings"));
+        // @uri Liri.GSettings
+        Q_ASSERT(QLatin1String(uri) == QLatin1String("QtGSettings"));
 
-        qmlRegisterType<QmlGSettings>(uri, 1, 0, "Settings");
+        qmlRegisterType<QmlGSettings>(uri, 1, 0, "GSettings");
         qmlRegisterUncreatableType<QmlGSettingsSchema>(
-                uri, 1, 0, "SettingsSchema",
-                QStringLiteral("Cannot instantiate SettingsSchema objects"));
+                uri, 1, 0, "GSettingsSchema",
+                QStringLiteral("Cannot instantiate GSettingsSchema objects"));
     }
 };
 

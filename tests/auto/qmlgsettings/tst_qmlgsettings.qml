@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * Author(s):
- *    Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL2+$
  *
@@ -26,7 +23,7 @@
 
 import QtQuick 2.0
 import QtTest 1.0
-import Vibe.Settings 1.0
+import QtGSettings 1.0
 
 // Some tests start with a number to make sure order
 // of execution is respected, in fact we need to test
@@ -38,14 +35,14 @@ TestCase {
     property var changes: []
     property int bindingTest: settings.testInteger
 
-    Settings {
+    GSettings {
         id: settings
         schema.id: "io.liri.gsettings.test"
         schema.path: "/io/liri/gsettings/test/"
         onValueChanged: changes.push([key, value])
     }
 
-    Settings {
+    GSettings {
         id: invalidSettings
         schema.id: "io.liri.gsettings.invalid.test"
     }

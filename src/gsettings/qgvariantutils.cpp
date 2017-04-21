@@ -1,11 +1,8 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2013-2015 Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2013 Canonical Ltd.
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -183,4 +180,4 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
     return 0;
 }
 
-}
+} // namespace Utils

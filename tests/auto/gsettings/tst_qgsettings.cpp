@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2012-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * Author(s):
- *    Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL2+$
  *
@@ -26,9 +23,9 @@
 
 #include <QtTest/QtTest>
 
-#include <Vibe/Settings/QGSettings>
+#include <QtGSettings/QGSettings>
 
-using namespace Vibe;
+using namespace QtGSettings;
 
 class TestQGSettings : public QObject
 {

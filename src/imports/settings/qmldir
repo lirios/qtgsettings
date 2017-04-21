@@ -1,4 +1,0 @@
-module Vibe.Settings
-plugin hawaiisettings
-classname VibeSettingsPlugin
-typeinfo plugins.qmltypes

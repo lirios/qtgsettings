@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -23,13 +20,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef QMLGSETTINGS_H
-#define QMLGSETTINGS_H
+#pragma once
 
 #include <QtQml/QQmlPropertyMap>
 #include <QtQml/QQmlParserStatus>
 
-namespace Vibe {
+namespace QtGSettings {
 class QGSettings;
 }
 
@@ -57,7 +53,5 @@ protected:
 
 private:
     QmlGSettingsSchema *m_schema;
-    Vibe::QGSettings *m_settings;
+    QtGSettings::QGSettings *m_settings;
 };
-
-#endif // QMLGSETTINGS_H

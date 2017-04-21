@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -23,12 +20,13 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LOGGING_H
-#define LOGGING_H
+#pragma once
 
-#include <QtCore/QLoggingCategory>
+#include <QtCore/qglobal.h>
 
-Q_DECLARE_LOGGING_CATEGORY(QGSETTINGS)
-
-#endif // LOGGING_H
-
+#if defined(QT_BUILD_QTGSETTINGS_LIB)
+#  define QTGSETTINGS_EXPORT Q_DECL_EXPORT
+#else
+#  define QTGSETTINGS_EXPORT Q_DECL_IMPORT
+#endif
+#define QTGSETTINGS_NO_EXPORT Q_DECL_HIDDEN

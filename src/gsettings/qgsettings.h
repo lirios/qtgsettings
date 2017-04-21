@@ -1,11 +1,8 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2013 Canonical Ltd.
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -24,19 +21,18 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef VIBE_QGSETTINGS_H
-#define VIBE_QGSETTINGS_H
+#pragma once
 
 #include <QtCore/QObject>
 
-#include <Vibe/settings/vibe_settings_export.h>
+#include <QtGSettings/qtgsettingsglobal.h>
 
-namespace Vibe
+namespace QtGSettings
 {
 
 class QGSettingsPrivate;
 
-class VIBESETTINGS_EXPORT QGSettings : public QObject
+class QTGSETTINGS_EXPORT QGSettings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid CONSTANT)
@@ -70,6 +66,4 @@ private:
     QGSettingsPrivate *const d_ptr;
 };
 
-} // namespace Vibe
-
-#endif // VIBE_QGSETTINGS_H
+} // namespace QtGSettings

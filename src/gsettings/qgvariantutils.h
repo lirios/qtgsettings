@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -23,10 +20,9 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
-#include <QtCore/QString>
+#include <QtCore/QVariant>
 
 extern "C" {
 #include <glib.h>
@@ -34,10 +30,7 @@ extern "C" {
 
 namespace Utils {
 
-QString toCamelCase(const gchar *name);
-gchar *fromCamelCase(const QString &name);
+QVariant toQVariant(GVariant *value);
+GVariant *toGVariant(const GVariantType *type, const QVariant &variant);
 
-}
-
-#endif // UTILS_H
-
+} // namespace Utils

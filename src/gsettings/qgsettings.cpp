@@ -1,11 +1,8 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2013 Canonical Ltd.
- *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:LGPL3$
  *
@@ -33,9 +30,9 @@ extern "C" {
 #include <gio/gio.h>
 }
 
-Q_LOGGING_CATEGORY(QGSETTINGS, "vibe.qgsettings")
+Q_LOGGING_CATEGORY(QTGSETTINGS, "qtgsettings")
 
-namespace Vibe
+namespace QtGSettings
 {
 
 /*
@@ -126,7 +123,7 @@ QVariant QGSettings::value(const QString &key) const
 void QGSettings::setValue(const QString &key, const QVariant &value)
 {
     if (!trySetValue(key, value)) {
-        qCWarning(QGSETTINGS) << "Unable to set value for key" << key;
+        qCWarning(QTGSETTINGS) << "Unable to set value for key" << key;
         return;
     }
 }
@@ -270,6 +267,4 @@ bool QGSettings::isSchemaInstalled(const QString &schemaId)
     }
 }
 
-} // namespace Vibe
-
-#include "moc_qgsettings.cpp"
+} // namespace QtGSettings

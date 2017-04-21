@@ -1,10 +1,7 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of Qt GSettings.
  *
- * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * Author(s):
- *    Pier Luigi Fiorini
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL2+$
  *
@@ -26,11 +23,7 @@
 
 #include <QtQuickTest/QtQuickTest>
 
-// Can't use QUICK_TEST_MAIN because we need to
-// set environment variables
-int main(int argc, char **argv)
-{
-    qputenv("GSETTINGS_BACKEND", "memory");
-    qputenv("GSETTINGS_SCHEMA_DIR", QByteArrayLiteral(TEST_DATADIR));
-    return quick_test_main(argc, argv, "tst_qmlgsettings", QUICK_TEST_SOURCE_DIR);
-}
+static bool s_backend = qputenv("GSETTINGS_BACKEND", "memory");
+static bool s_schemaDir = qputenv("GSETTINGS_SCHEMA_DIR", QByteArrayLiteral(TEST_DATADIR));
+
+QUICK_TEST_MAIN(qmlgsettings)
