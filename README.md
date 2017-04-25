@@ -37,8 +37,7 @@ On the `qmake` line, you can specify additional configuration parameters:
 
  * `LIRI_INSTALL_PREFIX=/path/to/install` (for example `/opt/liri` or `/usr`)
  * `CONFIG+=debug` if you want a debug build
- * `CONFIG+=use_qt_paths` as an alternative to `LIRI_INSTALL_PREFIX=/path/to/install`
-   if you want to install where Qt is installed
+ * `CONFIG+=use_qt_paths` to install plugins and QML modules inside Qt
 
 Use `make distclean` from inside your `build` directory to clean up.
 You need to do this before rerunning `qmake` with different options.
