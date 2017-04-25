@@ -249,7 +249,7 @@ QStringList QGSettings::schemas()
     g_settings_schema_source_list_schemas(source, true, &schemas, Q_NULLPTR);
     QStringList result;
     for (int i = 0; schemas[i]; i++)
-        result.append(schemas[i]);
+        result.append(QString::fromUtf8(schemas[i]));
     g_strfreev(schemas);
     return result;
 }

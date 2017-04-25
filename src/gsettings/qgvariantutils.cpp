@@ -88,7 +88,7 @@ QVariant toQVariant(GVariant *value)
             const gchar *key;
             const gchar *val;
             while (g_variant_iter_next(&iter, "{&s&s}", &key, &val))
-                stringMap.insert(key, QVariant(val));
+                stringMap.insert(QString::fromUtf8(key), QVariant(QString::fromUtf8(val)));
 
             return stringMap;
         } else if (g_variant_is_of_type(value, G_VARIANT_TYPE("a{si}"))) {
@@ -100,7 +100,7 @@ QVariant toQVariant(GVariant *value)
             const gchar *key;
             int val;
             while (g_variant_iter_next(&iter, "{&si}", &key, &val))
-                intMap.insert(key, QVariant(val));
+                intMap.insert(QString::fromUtf8(key), QVariant(val));
 
             return intMap;
         }
@@ -138,7 +138,8 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
         if (g_variant_type_equal(type, G_VARIANT_TYPE_STRING_ARRAY)) {
             GVariantBuilder builder;
             g_variant_builder_init(&builder, G_VARIANT_TYPE_STRING_ARRAY);
-            Q_FOREACH (const QString &item, variant.toStringList())
+            const QStringList list = variant.toStringList();
+            for (const QString &item : qAsConst(list))
                 g_variant_builder_add(&builder, "s", item.toUtf8().constData());
 
             return g_variant_builder_end(&builder);

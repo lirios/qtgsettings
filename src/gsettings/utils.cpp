@@ -45,12 +45,12 @@ QString toCamelCase(const gchar *name)
             // Characters following a dash are upper case
             nextUpperCase = true;
         } else if (nextUpperCase) {
-            QChar c(*name);
+            QChar c = QChar::fromLatin1(*name);
 
             // Leave the dash in front of numbers otherwise it
             // won't be possible to do the inverse
             if (c.isDigit()) {
-                result.append('-');
+                result.append(QLatin1Char('-'));
                 result.append(c);
             } else {
                 result.append(c.toUpper());
@@ -58,7 +58,7 @@ QString toCamelCase(const gchar *name)
 
             nextUpperCase = false;
         } else {
-            result.append(*name);
+            result.append(QChar::fromLatin1(*name));
         }
 
         name++;
@@ -86,7 +86,7 @@ gchar *fromCamelCase(const QString &name)
 
     QByteArray bytes = name.toLatin1();
     for (int i = 0; i < bytes.size(); i++) {
-        QChar c(bytes.at(i));
+        QChar c = QChar::fromLatin1(bytes.at(i));
         if (c.isUpper()) {
             g_string_append_c(string, '-');
             g_string_append_c(string, c.toLower().toLatin1());

@@ -46,11 +46,11 @@ private Q_SLOTS:
         qDebug() << "Using schema directory:" << qgetenv("GSETTINGS_SCHEMA_DIR");
         QCOMPARE(qgetenv("GSETTINGS_BACKEND"), QByteArrayLiteral("memory"));
 
-        QVERIFY2(QGSettings::isSchemaInstalled("io.liri.gsettings.test"),
+        QVERIFY2(QGSettings::isSchemaInstalled(QLatin1String("io.liri.gsettings.test")),
                  "Schema io.liri.gsettings.test must be installed");
 
-        settings = new QGSettings("io.liri.gsettings.test",
-                                  "/io/liri/gsettings/test/");
+        settings = new QGSettings(QLatin1String("io.liri.gsettings.test"),
+                                  QLatin1String("/io/liri/gsettings/test/"));
         QVERIFY2(settings->isValid(),
                  "Settings for io.liri.gsettings.test must be valid");
     }
@@ -85,56 +85,56 @@ private Q_SLOTS:
 
     void readBoolean()
     {
-        QVariant value = settings->defaultValue("testBoolean");
+        QVariant value = settings->defaultValue(QLatin1String("testBoolean"));
         QCOMPARE(value.toBool(), true);
     }
 
     void readInteger()
     {
-        QVariant value = settings->defaultValue("testInteger");
+        QVariant value = settings->defaultValue(QLatin1String("testInteger"));
         QCOMPARE(value.toInt(), 42);
     }
 
     void readDouble()
     {
-        QVariant value = settings->defaultValue("testDouble");
+        QVariant value = settings->defaultValue(QLatin1String("testDouble"));
         QCOMPARE(value.toDouble(), 42.69);
     }
 
     void readString()
     {
-        QVariant value = settings->defaultValue("testString");
-        QCOMPARE(value.toString(), QStringLiteral("howdy?"));
+        QVariant value = settings->defaultValue(QLatin1String("testString"));
+        QCOMPARE(value.toString(), QLatin1String("howdy?"));
     }
 
     void readChoices()
     {
-        QVariant value = settings->defaultValue(QStringLiteral("testChoices"));
-        QCOMPARE(value.toString(), QStringLiteral("one"));
+        QVariant value = settings->defaultValue(QLatin1String("testChoices"));
+        QCOMPARE(value.toString(), QLatin1String("one"));
     }
 
     void readStringList()
     {
-        QStringList cmpValue = QStringList() << "one" << "two" << "three";
-        QVariant value = settings->defaultValue("testStringList");
+        QStringList cmpValue = QStringList() << QLatin1String("one") << QLatin1String("two") << QLatin1String("three");
+        QVariant value = settings->defaultValue(QLatin1String("testStringList"));
         QCOMPARE(value.toStringList(), cmpValue);
     }
 
     void readStringMap()
     {
         QMap<QString, QVariant> cmpValue;
-        cmpValue.insert("key1", "value1");
-        cmpValue.insert("key2", "value2");
-        QVariant value = settings->defaultValue("testStringMap");
+        cmpValue.insert(QLatin1String("key1"), QLatin1String("value1"));
+        cmpValue.insert(QLatin1String("key2"), QLatin1String("value2"));
+        QVariant value = settings->defaultValue(QLatin1String("testStringMap"));
         QCOMPARE(value.toMap(), cmpValue);
     }
 
     void readIntegerMap()
     {
         QMap<QString, QVariant> cmpValue;
-        cmpValue.insert("key1", 1);
-        cmpValue.insert("key2", 2);
-        QVariant value = settings->defaultValue("testIntegerMap");
+        cmpValue.insert(QLatin1String("key1"), 1);
+        cmpValue.insert(QLatin1String("key2"), 2);
+        QVariant value = settings->defaultValue(QLatin1String("testIntegerMap"));
         QCOMPARE(value.toMap(), cmpValue);
     }
 
@@ -146,17 +146,17 @@ private Q_SLOTS:
         QTest::newRow("boolean") << "testBoolean" << QVariant(false);
         QTest::newRow("integer") << "testInteger" << QVariant(69);
         QTest::newRow("double") << "testDouble" << QVariant(69.42);
-        QTest::newRow("string") << "testString" << QVariant("hello");
-        QTest::newRow("choices") << "testChoices" << QVariant("three");
-        QStringList stringList = QStringList() << "another" << "value";
+        QTest::newRow("string") << "testString" << QVariant(QLatin1String("hello"));
+        QTest::newRow("choices") << "testChoices" << QVariant(QLatin1String("three"));
+        QStringList stringList = QStringList() << QLatin1String("another") << QLatin1String("value");
         QTest::newRow("string-list") << "testStringList" << QVariant(stringList);
         QMap<QString, QVariant> stringMap;
-        stringMap.insert("another-key1", "one");
-        stringMap.insert("another-key2", "two");
+        stringMap.insert(QLatin1String("another-key1"), QLatin1String("one"));
+        stringMap.insert(QLatin1String("another-key2"), QLatin1String("two"));
         QTest::newRow("string-map") << "testStringMap" << QVariant(stringMap);
         QMap<QString, QVariant> intMap;
-        intMap.insert("another-key1", 1);
-        intMap.insert("another-key2", 2);
+        intMap.insert(QLatin1String("another-key1"), 1);
+        intMap.insert(QLatin1String("another-key2"), 2);
         QTest::newRow("integer-map") << "testIntegerMap" << QVariant(intMap);
     }
 
@@ -175,9 +175,9 @@ private Q_SLOTS:
         keys.sort();
 
         QStringList cmpKeys = QStringList()
-                << "testBoolean" << "testInteger" << "testDouble"
-                << "testString" << "testChoices" << "testStringList"
-                << "testStringMap" << "testIntegerMap";
+                << QLatin1String("testBoolean") << QLatin1String("testInteger") << QLatin1String("testDouble")
+                << QLatin1String("testString") << QLatin1String("testChoices") << QLatin1String("testStringList")
+                << QLatin1String("testStringMap") << QLatin1String("testIntegerMap");
         cmpKeys.sort();
 
         QCOMPARE(keys, cmpKeys);
@@ -186,18 +186,18 @@ private Q_SLOTS:
     void setOutOfRangeValue()
     {
         // Make sure test-choices contains a known value
-        settings->setValue("testChoices", "one");
+        settings->setValue(QLatin1String("testChoices"), QLatin1String("one"));
 
         // Set a value that is out of range
-        settings->setValue("testChoices", "four");
+        settings->setValue(QLatin1String("testChoices"), QLatin1String("four"));
 
         // Now the reported value should not be changed
-        QCOMPARE(settings->value("testChoices").toString(), QStringLiteral("one"));
+        QCOMPARE(settings->value(QLatin1String("testChoices")).toString(), QStringLiteral("one"));
     }
 
     void invalidSchemaNotInstalled()
     {
-        QVERIFY2(!QGSettings::isSchemaInstalled("io.liri.gsettings.invalid.test"),
+        QVERIFY2(!QGSettings::isSchemaInstalled(QLatin1String("io.liri.gsettings.invalid.test")),
                  "Schema io.liri.gsettings.invalid.test must not be installed");
     }
 
@@ -205,7 +205,7 @@ private Q_SLOTS:
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings("io.liri.gsettings.invalid.test");
+        QGSettings *invalidSettings = new QGSettings(QLatin1String("io.liri.gsettings.invalid.test"));
         QVERIFY2(!invalidSettings->isValid(),
                  "Settings for io.liri.gsettings.invalidtest must not be valid");
         invalidSettings->deleteLater();
@@ -215,8 +215,8 @@ private Q_SLOTS:
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings("io.liri.gsettings.test",
-                                                     "/io/liri/gsettings/invalid/test/");
+        QGSettings *invalidSettings = new QGSettings(QLatin1String("io.liri.gsettings.test"),
+                                                     QLatin1String("/io/liri/gsettings/invalid/test/"));
         QVERIFY2(!invalidSettings->isValid(),
                  "Path /io/liri/gsettings/invalid/test must not be found");
         invalidSettings->deleteLater();
@@ -224,7 +224,7 @@ private Q_SLOTS:
 
     void invalidKey()
     {
-        QCOMPARE(settings->value("keyThatDoesNotExist"), QVariant());
+        QCOMPARE(settings->value(QLatin1String("keyThatDoesNotExist")), QVariant());
     }
 
 private:
