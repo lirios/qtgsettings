@@ -21,7 +21,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "utils.h"
+#include "utils_p.h"
 
 namespace Utils {
 

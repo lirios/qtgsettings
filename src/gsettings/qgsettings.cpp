@@ -21,10 +21,10 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "logging.h"
-#include "qgvariantutils.h"
 #include "qgsettings.h"
-#include "utils.h"
+#include "logging_p.h"
+#include "qgvariantutils_p.h"
+#include "utils_p.h"
 
 extern "C" {
 #include <gio/gio.h>

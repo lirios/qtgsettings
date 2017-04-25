@@ -24,7 +24,7 @@
 #include <QtCore/QUrl>
 #include <QtCore/QStringList>
 
-#include "qgvariantutils.h"
+#include "qgvariantutils_p.h"
 
 namespace Utils {
 

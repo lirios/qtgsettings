@@ -13,8 +13,8 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/qgsettings.cpp \
-    $$PWD/qgvariantutils.cpp \
-    $$PWD/utils.cpp
+    $$PWD/qgvariantutils_p.cpp \
+    $$PWD/utils_p.cpp
 
 QMAKE_PKGCONFIG_NAME = QtGSettings
 QMAKE_PKGCONFIG_DESCRIPTION = Qt bindings to GSettings
