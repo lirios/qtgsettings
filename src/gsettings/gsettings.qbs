@@ -35,7 +35,7 @@ DynamicLibrary {
         id: publicHeaders
         name: "public headers"
         files: [
-            "lirigsettingsglobal.h",
+            "qtgsettingsglobal.h",
             "qgsettings.h"
         ]
         //fileTags: ["public_headers"]
@@ -67,7 +67,7 @@ DynamicLibrary {
                 var destDir = product.headersDir + "/QtGSettings";
 
                 // TODO: This is a hack
-                if (input.fileName == "lirigsettingsglobal.h")
+                if (input.fileName == "qtgsettingsglobal.h")
                     return "QtGSettingsGlobal";
                 else if (input.fileName == "qgsettings.h")
                     return "QGSettings";

@@ -8,7 +8,7 @@ PKGCONFIG += gio-2.0
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/lirigsettingsglobal.h \
+    $$PWD/qtgsettingsglobal.h \
     $$PWD/qgsettings.h
 
 SOURCES += \
