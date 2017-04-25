@@ -1,0 +1,38 @@
+# Maintainer: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+
+pkgname=qtgsettings-git
+pkgver=@PKGVER@
+pkgrel=1
+pkgdesc="Qt-style API for GSettings"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://liri.io"
+license=('LGPL3')
+depends=('qt5-base' 'qt5-declarative', 'glib2')
+makedepends=('git')
+
+_gitroot="git://github.com/lirios/qtgsettings.git"
+_gitbranch="@GITBRANCH@"
+_gitname="qtgsettings"
+source=(${_gitname}::${_gitroot}#branch=${_gitbranch})
+md5sums=('SKIP')
+
+pkgver() {
+	cd ${srcdir}/${_gitname}
+	echo "$(git log -1 --format="%cd" --date=short | tr -d '-').$(git log -1 --format="%h")"
+}
+
+prepare() {
+	mkdir -p build
+	pushd ${_gitname} && git submodule update --init && popd
+}
+
+build() {
+	cd build
+	qmake CONFIG+=use_qt_paths ../${_gitname}/qtgsettings.pro
+	make
+}
+
+package() {
+	cd build
+	make INSTALL_ROOT="${pkgdir}" install
+}

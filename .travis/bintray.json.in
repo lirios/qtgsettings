@@ -1,0 +1,29 @@
+{
+  "package": {
+    "name": "qtgsettings",
+    "repo": "archlinux-@GITBRANCH@",
+    "subject": "liri",
+    "desc": "Qt-style API for GSettings",
+    "website_url": "https://liri.io",
+    "issue_tracker_url": "https://github.com/lirios/qtgsettings",
+    "vcs_url": "https://github.com/lirios/qtgsettings",
+    "licenses": ["LGPL-3"],
+    "labels": ["qt", "gsettings"]
+  },
+  "version": {
+    "name": "@PKGVER@",
+    "desc": "Arch Linux build from CI",
+    "released": "@TODAY@",
+    "vcs_tag": "@GITREV@",
+    "attributes": [
+      {"name": "gitrevision", "values": ["@GITREV@"], "type": "string"},
+      {"name": "gitdate", "values": ["@GITDATE@"], "type": "date"}
+    ],
+    "gpgSign": false
+  },
+  "files": [
+    {"includePattern": "cibuild/(qtgsettings-git-.*.pkg.tar.xz)", "uploadPattern": "@ARCH@/$1", "matrixParams": {"override": 1}},
+    {"includePattern": "cibuild/(qtgsettings.db.tar.gz)", "uploadPattern": "@ARCH@/qtgsettings.db", "matrixParams": {"override": 1}}
+  ],
+  "publish": true
+}
