@@ -7,7 +7,7 @@ pkgdesc="Qt-style API for GSettings"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://liri.io"
 license=('LGPL3')
-depends=('qt5-base' 'qt5-declarative', 'glib2')
+depends=('qt5-base' 'qt5-declarative' 'glib2')
 makedepends=('git')
 
 _gitroot="git://github.com/lirios/qtgsettings.git"
