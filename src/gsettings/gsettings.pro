@@ -1,5 +1,6 @@
 TARGET = QtGSettings
 MODULE = QtGSettings
+MODULE_INCNAME = Qt5GSettings
 
 QT -= gui
 CONFIG += no_keywords link_pkgconfig create_pc create_prl no_install_prl
@@ -16,7 +17,7 @@ SOURCES += \
     $$PWD/qgvariantutils_p.cpp \
     $$PWD/utils_p.cpp
 
-QMAKE_PKGCONFIG_NAME = Qt5GSettings
+QMAKE_PKGCONFIG_NAME = Qt GSettings
 QMAKE_PKGCONFIG_DESCRIPTION = Qt bindings to GSettings
 QMAKE_PKGCONFIG_VERSION = $$QTGSETTINGS_VERSION
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig
