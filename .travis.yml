@@ -17,6 +17,7 @@ env:
 
 arch:
   packages:
+    - qbs
     - qt5-declarative
     - glib2
     - clang
@@ -24,12 +25,20 @@ arch:
     - xorg-server-xvfb
   script:
     - export CLAZY_CHECKS="level1"
+    # qmake build
     - mkdir build
     - if [ "$CC" = "gcc" ]; then cd build && qmake -spec linux-g++ CONFIG+=use_qt_paths ../qtgsettings.pro; fi
     #- if [ "$CC" = "clang" ]; then cd build && qmake -spec linux-clang CONFIG+=use_qt_paths QMAKE_CXX="clazy" ../qtgsettings.pro; fi
     - if [ "$CC" = "clang" ]; then cd build && qmake -spec linux-clang CONFIG+=use_qt_paths ../qtgsettings.pro; fi
     - cd build && make -j$(nproc)
     - cd build && xvfb-run -a -s "-screen 0 800x600x24" make check
+    # qbs build
+    - qbs-setup-toolchains --detect
+    - qbs-setup-qt /usr/bin/qmake-qt5 qt5
+    - qbs config profiles.qt5.baseProfile ${CC}
+    - qbs -d qbs-build -j $(nproc) profile:qt5
+    - eval `dbus-launch --sh-syntax` && xvfb-run -a -s "-screen 0 800x600x24" qbs -d qbs-build -p qtgsettings-autotest profile:qt5
+    # Build CI package
     - ./.travis/bintray-wrapper.sh
 
 script:
