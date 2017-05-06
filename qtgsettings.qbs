@@ -19,7 +19,6 @@ Project {
     ]
 
     AutotestRunner {
-        builtByDefault: true
         name: "qtgsettings-autotest"
         arguments: project.autotestArguments
         wrapper: project.autotestWrapper
