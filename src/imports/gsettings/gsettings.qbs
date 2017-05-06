@@ -1,26 +1,27 @@
 import qbs 1.0
 
-LoadableModule {
+LiriDynamicLibrary {
     name: "qtgsettingsplugin"
+    targetName: "qtgsettingsplugin"
 
-    Depends { name: "cpp" }
+    Depends { name: "lirideployment" }
     Depends { name: "Qt"; submodules: ["qml", "quick"] }
-    Depends { name: "QtGSettings" }
+    Depends { name: "libQtGSettings" }
 
-    files: [
-        "plugin.cpp",
-        "qmlgsettings.cpp",
-        "qmlgsettingsschema.cpp"
-    ]
+    files: ["*.cpp", "*.h"]
 
     Group {
-        fileTagsFilter: product.type
-        qbs.install: true
-        qbs.installDir: "qml/QtGSettings"
+        name: "QML Files"
+        files: [
+            "qmldir",
+            "plugins.qmltypes"
+        ]
+        fileTags: ["qml"]
     }
 
-    Export {
-        Depends { name: "cpp" }
-        cpp.defines: product.projectFileUpdateDefines
+    Group {
+        qbs.install: true
+        qbs.installDir: lirideployment.qmlDir + "/QtGSettings"
+        fileTagsFilter: ["dynamiclibrary", "qml"]
     }
 }

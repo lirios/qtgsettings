@@ -16,7 +16,7 @@ SOURCES += \
     $$PWD/qgvariantutils_p.cpp \
     $$PWD/utils_p.cpp
 
-QMAKE_PKGCONFIG_NAME = QtGSettings
+QMAKE_PKGCONFIG_NAME = Qt5GSettings
 QMAKE_PKGCONFIG_DESCRIPTION = Qt bindings to GSettings
 QMAKE_PKGCONFIG_VERSION = $$QTGSETTINGS_VERSION
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig

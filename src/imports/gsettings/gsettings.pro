@@ -2,7 +2,7 @@ TARGET = qtgsettingsplugin
 TARGETPATH = QtGSettings
 IMPORT_VERSION = 1.0
 
-QT += qml quick QtGSettings
+QT += qml quick Qt5GSettings
 
 CONFIG += no_keywords
 

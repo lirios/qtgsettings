@@ -1,6 +1,6 @@
 TARGET = tst_qmlgsettings
 
-QT += testlib QtGSettings
+QT += testlib Qt5GSettings
 
 CONFIG += qmltestcase
 

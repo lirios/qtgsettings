@@ -1,22 +1,34 @@
 import qbs 1.0
 import qbs.Probes
-import qbs.TextFile
-import qbs.FileInfo
 
-DynamicLibrary {
-    name: "QtGSettings"
+LiriModule {
+    name: "libQtGSettings"
 
-    property string headersDir: publicHeaders.qbs.installRoot + "/include"
+    targetName: "Qt5GSettings"
+    version: "1.0.0"
 
-    Depends { name: "cpp" }
-    Depends { name: "Qt"; submodules: ["core"] }
+    Depends { name: "Qt.core" }
 
     cpp.defines: base.concat(["QT_NO_KEYWORDS"])
-    cpp.includePaths: base.concat(publicHeaders.qbs.installRoot + "/include")
-    cpp.cxxFlags: pkgConfig.cflags
-    cpp.linkerFlags: pkgConfig.libs
+    cpp.cxxFlags: base.concat(pkgConfig.cflags)
+    cpp.linkerFlags: base.concat(pkgConfig.libs)
     // FIXME: For some reasone the above instruction is not enough
     cpp.dynamicLibraries: ["glib-2.0", "gio-2.0", "gobject-2.0"]
+
+    create_headers.headersMap: ({
+        "qgsettings.h": "QGSettings",
+    })
+
+    create_pkgconfig.name: "Qt GSettings"
+    create_pkgconfig.description: "Qt-style wrapper for GSettings"
+    create_pkgconfig.version: project.version
+    create_pkgconfig.dependencies: ["Qt5Core", "gio-2.0"]
+
+    create_cmake.version: project.version
+    create_cmake.dependencies: ({
+        "Qt5Core": "5.6"
+    })
+    create_cmake.linkLibraries: ["Qt5::Core"]
 
     Probes.PkgConfigProbe {
         id: pkgConfig
@@ -25,82 +37,28 @@ DynamicLibrary {
 
     condition: pkgConfig.found
 
-    files: [
-        "qgsettings.cpp",
-        "qgvariantutils.cpp",
-        "utils.cpp"
-    ]
+    files: ["*.cpp"]
 
     Group {
-        id: publicHeaders
-        name: "public headers"
-        files: [
-            "qtgsettingsglobal.h",
-            "qgsettings.h"
-        ]
-        //fileTags: ["public_headers"]
-        qbs.install: true
-        qbs.installDir: "include/QtGSettings"
+        name: "Headers"
+        files: ["*.h"]
+        excludeFiles: ["*_p.h"]
+        fileTags: ["public_headers"]
     }
-
-    /*
-    Group {
-        fileTagsFilter: "class_headers"
-        qbs.install: true
-        qbs.installDir: "include/QtGSettings"
-    }
-    */
 
     Group {
-        fileTagsFilter: product.type
-        qbs.install: true
-        qbs.installDir: "lib"
+        name: "Private Headers"
+        files: ["*_p.h"]
+        fileTags: ["private_headers"]
     }
-
-    /*
-    Rule {
-        inputs: ["public_headers"]
-        alwaysRun: true
-
-        Artifact {
-            filePath: {
-                var destDir = product.headersDir + "/QtGSettings";
-
-                // TODO: This is a hack
-                if (input.fileName == "qtgsettingsglobal.h")
-                    return "QtGSettingsGlobal";
-                else if (input.fileName == "qgsettings.h")
-                    return "QGSettings";
-
-                // Camel case on a single word, of course it doesn't work
-                var camelCase = function(w) {
-                    return w[0].toUpperCase() + w.slice(1).toLowerCase();
-                };
-                var baseName = FileInfo.completeBaseName(input.fileName);
-                return destDir + "/" + baseName.replace(/\w+/g, camelCase);
-            }
-            fileTags: ["hpp"]
-            alwaysUpdated: true
-        }
-
-        prepare: {
-            var cmd = new JavaScriptCommand();
-            cmd.description = "Creating class header " + output.fileName;
-            cmd.highlight = "codegen";
-            cmd.sourceCode = function() {
-                var content = '#include "' + input.fileName + '"';
-                var file = new TextFile(output.filePath, TextFile.WriteOnly);
-                file.write(content);
-                file.close();
-            }
-            return [cmd];
-        }
-    }
-    */
 
     Export {
         Depends { name: "cpp" }
+        Depends { name: "Qt.core" }
+
         cpp.defines: product.projectFileUpdateDefines
-        cpp.includePaths: base.concat(publicHeaders.qbs.installRoot + "/include")
+        cpp.includePaths: product.generatedHeadersDir
+        // FIXME: For some reasone the above instruction is not enough
+        cpp.dynamicLibraries: ["glib-2.0", "gio-2.0", "gobject-2.0"]
     }
 }

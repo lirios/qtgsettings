@@ -1,6 +1,6 @@
 TARGET = tst_qgsettings
 
-QT += testlib QtGSettings
+QT += testlib Qt5GSettings
 
 CONFIG += testcase
 
