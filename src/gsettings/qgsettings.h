@@ -25,7 +25,7 @@
 
 #include <QtCore/QObject>
 
-#include <QtGSettings/qtgsettingsglobal.h>
+#include <Qt5GSettings/qtgsettingsglobal.h>
 
 namespace QtGSettings
 {

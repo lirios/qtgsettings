@@ -21,7 +21,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtGSettings/QGSettings>
+#include <Qt5GSettings/QGSettings>
 
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
