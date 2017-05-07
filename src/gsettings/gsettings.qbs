@@ -2,7 +2,7 @@ import qbs 1.0
 import qbs.Probes
 
 LiriModule {
-    name: "libQtGSettings"
+    name: "Qt5GSettings"
 
     targetName: "Qt5GSettings"
     version: "1.0.0"

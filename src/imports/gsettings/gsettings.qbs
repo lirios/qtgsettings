@@ -6,7 +6,7 @@ LiriDynamicLibrary {
 
     Depends { name: "lirideployment" }
     Depends { name: "Qt"; submodules: ["qml", "quick"] }
-    Depends { name: "libQtGSettings" }
+    Depends { name: "Qt5GSettings" }
 
     files: ["*.cpp", "*.h"]
 
