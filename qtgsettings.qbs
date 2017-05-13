@@ -5,6 +5,7 @@ Project {
 
     readonly property string version: "1.0.0"
 
+    property bool autotestEnabled: false
     property stringList autotestArguments: []
     property stringList autotestWrapper: []
 
@@ -19,6 +20,7 @@ Project {
     ]
 
     AutotestRunner {
+        builtByDefault: autotestEnabled
         name: "qtgsettings-autotest"
         arguments: project.autotestArguments
         wrapper: project.autotestWrapper
