@@ -1,7 +1,7 @@
 import qbs 1.0
 
 LiriDynamicLibrary {
-    name: "qtgsettingsplugin"
+    name: "QtGSettings"
     targetName: "qtgsettingsplugin"
 
     Depends { name: "lirideployment" }
