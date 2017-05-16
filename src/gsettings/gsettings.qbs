@@ -8,12 +8,18 @@ LiriModule {
     version: "1.0.0"
 
     Depends { name: "Qt.core" }
+    Depends { name: "glib"; submodules: ["gio", "gobject"] }
+
+    condition: {
+        if (!glib.gio.found || !glib.gobject) {
+            console.error("glib-2.0 is required to build " + targetName);
+            return false;
+        }
+
+        return true;
+    }
 
     cpp.defines: base.concat(["QT_NO_KEYWORDS"])
-    cpp.cxxFlags: base.concat(pkgConfig.cflags)
-    cpp.linkerFlags: base.concat(pkgConfig.libs)
-    // FIXME: For some reasone the above instruction is not enough
-    cpp.dynamicLibraries: ["glib-2.0", "gio-2.0", "gobject-2.0"]
 
     create_headers.headersMap: ({
         "qgsettings.h": "QGSettings",
@@ -29,13 +35,6 @@ LiriModule {
         "Qt5Core": "5.6"
     })
     create_cmake.linkLibraries: ["Qt5::Core"]
-
-    Probes.PkgConfigProbe {
-        id: pkgConfig
-        name: "gio-2.0"
-    }
-
-    condition: pkgConfig.found
 
     files: ["*.cpp"]
 
