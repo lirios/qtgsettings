@@ -25,4 +25,16 @@ Project {
         arguments: project.autotestArguments
         wrapper: project.autotestWrapper
     }
+
+    InstallPackage {
+        name: "qtgsettings-artifacts"
+        targetName: name
+        builtByDefault: false
+
+        archiver.type: "tar"
+        archiver.outputDirectory: project.buildDirectory
+
+        Depends { name: "Qt5GSettings" }
+        Depends { name: "QtGSettings" }
+    }
 }
