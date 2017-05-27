@@ -24,10 +24,7 @@ The following modules and their dependencies are required:
 
 ## Installation
 
-### Build with Qbs
-
 Qbs is a new build system that is much easier to use compared to qmake or CMake.
-It is the default build system for this project and soon will become the only one.
 
 If you want to learn more, please read the [Qbs manual](http://doc.qt.io/qbs/index.html),
 especially the [setup guide](http://doc.qt.io/qbs/configuring.html) and how to install artifacts
@@ -58,29 +55,6 @@ See `qbs/shared/modules/lirideployment/lirideployment.qbs` for more deployment-r
 
 If you specify `qbs.installRoot` you might need to prefix the entire line with `sudo`,
 depending on whether you have permissions to write there or not.
-
-### Build with qmake
-
-qmake, the Qt build system is still supported but will be removed at some point.
-Qbs is a much better alternative with none of the complexity brought by qmake.
-
-From the root of the repository, run:
-
-```sh
-mkdir build; cd build
-qmake ../qtgsettings.pro
-make
-make install # use sudo if necessary
-```
-
-On the `qmake` line, you can specify additional configuration parameters:
-
- * `LIRI_INSTALL_PREFIX=/path/to/install` (for example `/opt/liri` or `/usr`)
- * `CONFIG+=debug` if you want a debug build
- * `CONFIG+=use_qt_paths` to install plugins and QML modules inside Qt
-
-Use `make distclean` from inside your `build` directory to clean up.
-You need to do this before rerunning `qmake` with different options.
 
 ## Licensing
 
