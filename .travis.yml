@@ -6,46 +6,48 @@ compiler:
 
 sudo: required
 
+services:
+  - docker
+
 env:
   global:
-    # BINTRAY_USER
-    - secure: "q66TV+gUPMjRjjAVuuo+CXvs67EDL8KrV2IQ/MVE0P+WPMw8tdIjWqdvHFD7t/5Uw19QJAZvvo3eDK4Eg5D3cJcQU6KcWAmS1Dw8dNKsAl3dlV33hTjb3YYbewzvoYIKOkjMh2r9fXGwDdiuct+J0ZRIGT1xVbWB8pe9TCIRrFnHfnJdj0pfxeswv0se4NZaMbMau0GWzs3tjuOZ/OmZtl63zOgABGPkAq8PTEtArNkRm3Rv9uawftBjbyjn6Ic9NmapP3JxZKOI8NpRNUor7a4pZJ29K3EdM0NQGRVevDTcXeaF0WgHGH3Wh5ousVOu125yODbOcqRZ2jMpdtjm9eyhtG0mfFqXljI7D5FwvrL6CYXBZSV0pAPcD0QetHB8sbzD6n+9tftl2yaoRmfun8loDqcd5pTkYgVxQeGJto03z2XjaSvGLfBReuPnYc+Ztg1k154HDr5O9SNHIgjXLhNVvJE/ezTbC9DH10dTfAJ+5ngeO2E2rUaktbOKbRlvONPcF6sr/lQ0UccPUqNaZjvdHgZ5o1eqU+99WEo/RjS6yt35BQ8D2z8W1FAXr3x3mYKJGq3j62cnXZxYnDMf/2R1cKBUvbS3Tk4DrmPa7tjGSkrWFo+kbGF73XhrTb1az3wYl+FK3Wlzcw0urcqJe4pjJweWGUimbWE7EMDrdjw="
-    # BINTRAY_API_KEY
-    - secure: "heujTdQ3QirqMGgWJgd9wZB/tsadlzl/vwr4jPB6ZSfmrFNlJq9PbxCju19EIvEPT/qVleWv4+ZBxLcI9xkavX75+xvLr4bs++yXtbSdGRNdDzkV9idkWPwYC1Gy6hamOF+ZbP9Z8Z42Y30OVflTRt5Nar5bee25/RtL1eIc+fUPkpD5B67Pd+2L5gQwfU9tebABojwMP9qtiNNllwxsBZ7OTcfI9L0M5TTN30uL345NPTTVCW38QvDrTyyPeRxVyFc8SPttiJJ5m/kjuhFBHYnZzItE9K+2wLJq5H2UerUXKS7qKAJGHa0VK/g/pptVbKGzh3YWVnnQzHissrWnq//8nQ4XImyBV2FXAGE77KTrDHPcUdfFkITeWFLJgKJvx0oMLl19H1clyVFEpLpmx+4XD4VqOro+LiGJZPQZ8RAnWMove6vyUrwQVi9yYhrakPCVMZt05eQU6aN5pBH5VStNQRdEYc7GJvVAHBtYDCzzsGPW+JEOdj/z4dj3inRj+sbVh4EUNnVetaNqCk4SzoFY0XR2N3W/OEM4k23r8d4ondmMFSSRQc1Nj6jHQDoRxgcRg6RbcGvfEFQbq92sCWzdxunq1QoBRNE2hmc2+TP9cwR73tW4h+kmUTk2Z4CD+TD6msnyPF5XA9Y5GT//opBxvCD6FKH+WHhSzRgNl6k="
-    # BINTRAY_REPO_OWNER
-    - secure: "ZjkIBhwXPQDc3RpfbWzNIw1WA36pQvVSn19ZnPMIUWmU2xy6YWcNUuk56A/5JAcbcGv3yPqWyMfJzFyJDuQzqWCFlEOZWB0NB4Kw3TdyPCimzslS7JOlC8qq3xfFx3B0/CVwhz1G4jzBKL5H/asF4PGcoaZwGNg21tGMM8yegbNrKm+QC9AGfABhJdTQzSn+CzSXMItF3E4N7oBPe0mlq1i1x65jVXVIDMUVeGmm+wz1nMUFRRzqlGgpoger4TKb93ZoxHrt1TPqdwdYm+CrCY8L3/lXDNYM3ezYgxO3jlNbWu/yPgE/u/Wjl0P+MZr54jT6uoEY1bWKBC4U4sQY+c9w5o4ZRKVjpyiamnZPsxRdC3i+HHdbDOIheRYSGboFE+Hlf/x1TfY6IQY/e+2Ob92c2otj8mTrqWAumZ+yhhqKdP0Ci3r+uDzSybToqY8cnvvyDUIwefoQH/78HkxYpWTHiCSR70R0JetSXAykDXF36FGXbKavAYBLE8I04p/1G/P8jjr6kLhwV1YNL2U24fGa/3RryebzcOEmbfNeSVcP36DGgfMOaImf+QCetp2/J429syplkl1SE4o0KxljS970T36+GcSrwK6i9L/Lfqq836gjJ53PQmRd5svmrvUnaFZ3j2Lb7I2C37R+VQo7+/dB+P/0uIc8N/altMbydKk="
+    # FTP_USER
+    - secure: "I+PT9Ktn83UNRuFQI9RP8lhjPMGTIZiEot7l7dJMPAjHqRhmGtj7AssocZR8u0f79xniQGNNqM4QKw7LXJQj+VeBC2a2siAJJn6U+sVmsuuksi1meTkLFEOigk1ZZHqSBJT/KGMzz+oXGxQNkMGnLLfMx7v19O3apLEtc1XQtPeIms2Pm9vkZYAoqyTbvtGHOo+urfKu3KDY2COZyfmR/y0hI5YrE3U6z7eP0/FfmuxXa6GPSTySulT0qahyBkbc46+eNZ+vjEod5vhdpRrfyXFyHmT3wHuoxKXs+VvKsxnoEUGC0qI4gTxjUarroiCB/I43W9PyVsXYGK6q65n9rykXeU9iASBX4CctjQDIWfccsDoVY9k5JrJUImmh/R4EfCNN9RE5Eac+JTvuJ49vDmqhPMGqaELEHP+e8qHnbvo474KVq1y4Q881p3YhAqbTVz1wN0GABTMa2F1fCcEKQ/FeGMOif8GvLhzf8H+S7eII/Tmsz+E9NJH6T2LLoN6vPqMxODyMtgmkz7JPAmtUZZcvPYYl1J25EeuZZjmqbKduPA4/S6YLEhvJhmMXZaTyxgwz3S9jKUGdIluth2qdl45tByg4CIn4Q69Lk9CXT+FztgdF/hBSRDvXLZRW9aunok8jtr4kghbVjakIj88ycdakZ6CoMFXu4k+s5Z3H6yc="
+    # FTP_PASSWORD
+    - secure: "L3g1GlqVjTlvPlhsYTdZ0U0WToqU1BVXnO4fUznBzC1h2DLhsg6HTcJwKcYRb6qRgnUOWOT3vxLKolVK7bxGqmyzsgiMxu3rOquHcApBGVFb2Wruq08FsiW9XdOu/IO0BzeYyxmq+9IzYcg6VXDxg0oPAT8Euq+lpamVoCtAQuVta0uek/yqgrAOboJG8HwzOdqdoKwUVvO7XBtYG5GM4TUEXORGvrRwPGUOBsBhPnL59QtkLzTIlDZMRVgi4YWG+L31mueR3orWhW8NR6BlIWRfeE4daviMsSAyhjEmkcTPicxPrjLsWvTJBcu1Aal0ApWuBmWtjsU9PFE4jgn+XLQ4tuEMUUjW//DRrGe1OgEYeF/CdJVo1CKMSvBEPqDI/C2le2d0w9Vj9soHY7AGlFmONW2DNkakcbfilUWsoOaLUlgga9xHkyDpDVTg7TrPZo5ttgeCc+Sm/6DWy+jwQ+XLih/GePrS2NXkEph/M1PrqelFiLtyKi/MZdQ6NartUTRGr0erItubHaAKGiZU4gDLuLYZNOGxGswRJBWWrn77mLKMB0Avsk9PIdiuXh58ajxJyAVvVSfLSrvfBcHBf3Vmu9TYvE4ujqx9FkBLcnnApaRRQCEu2qz3ilzyY2eAbufdLcV9hzPu94yY1Ldvgs4rqqW+lPIRpdCY536Hj8w="
+    # FTP_URL
+    - secure: "bm/tcZDotHXlMxvnDRZP/qKoSs0u7xegyl4U9QMEgWQlMiBJHLx6v0ztxygqOCq8kV6uYxKGdKRegDH6pjdA8HtSfrqLLZUhhDoye7Qcr+ShyTWEYxVfyAJpPnPHF3HfBow2KjUZGem53GxxrhKGjwbIII4FTphoY7G1b3rwDfOcBzXvxOjsVGTnx5JY3J2fJ2L1iEsd7sk1rKOzcGqcLnm4rlLlaCtS0dRnDG1DAaYkWgF6XInx0vNtKxeNlRsULS2q6Ivj54iJVVg41+Lxb3QEqjniEqVHbuIPAV786+eykh04ZWhVgxmeS1lpCiqnCkxXhj7YXlpsGlXMskmjc5Dx7/zVugQ4zTXTUD3tm+Lz9mkzhUSTa6L+Oh2dKV/KnR9pkU75oH6Xwn+l451azyJvSmt7XZycAHg+6Vukusv1esipfsbDz8uDTl8jYAVVxWsq0MnGtBS5ZYoXCKtyna4dHaoVlG9eIY47CTzGUy1EpbhRSag+oJwmMy8BmjB15YTHy3+WFssqaRF55sZHCOGOvy9bW4CUzTJ0CaUnCa/01XzKio1e50pxij3Pp4vNh6DCJNeoOOGDtLVpo+Ill52mKdnY0Uj+gLFn9QoNGqmvPjU5Wfgg2qYmI7k+7rK+eGEG3Jvpt1CgD2dCUT9BjBRVzcQPyBX6GAyTgqLYmno="
 
 arch:
   packages:
     - qbs
     - qt5-declarative
     - glib2
-    - clang
     #- clazy-git
     - xorg-server-xvfb
   script:
     - export CLAZY_CHECKS="level1"
-    # qbs build
     - qbs-setup-toolchains --detect
     - qbs-setup-qt /usr/bin/qmake-qt5 qt5
     - qbs config profiles.qt5.baseProfile ${CC}
-    - eval `dbus-launch --sh-syntax` && xvfb-run -a -s "-screen 0 800x600x24" qbs -d qbs-build -j $(nproc) -p qtgsettings-autotest profile:qt5
-    # Build CI package
-    - ./.travis/bintray-wrapper.sh
+    - eval `dbus-launch --sh-syntax` && xvfb-run -a -s "-screen 0 800x600x24" qbs build -d build -j $(nproc) --all-products profile:qt5 qbs.installRoot:/ qbs.installPrefix:usr
 
 script:
-  - "curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash"
+  - "curl -s https://raw.githubusercontent.com/lirios/repotools/develop/travis/docker-travis.sh | bash"
 
 deploy:
-  provider: bintray
-  on:
-    branch: develop
-    condition: "$CC = gcc"
-  file: cibuild/bintray.json
-  user:
-    secure: "qz3uG2iepv4cUlDQIuUZGrL8FdgoWxqjgspo3gNZlqDRhxXbOousTuX8fKocLNjc5619jFaVWnhNUADPhjX2dXB/p1nfHpiyfWDvh+paKgaXd0GawfiRCGzTF/b1v8/VpwDSTa1XPqbVe5Rm6qyoZwmIYK9UgOsfyH0z5ENZoWLv2J7aq3vO8P6Hu4iZK83yhqUh9SwmfbRAyQkhFZmrb5d1PBqQgUi0yKrkc72GLWKmgLhXj9sYrOYUuC1736Ze6n9nIDfpmA3CQ0FMXAby3/eCazISUXMKEoxmPVg3Ry9eqLAMshLGLrNI0aKq1EilbfaM8QgZVfLz6/rBNh7Rk59b8pwlmjYaYF/qb8ZNHmYAh0albc3Fst/JVLYBJ7Wv/Ao+S5NSc0wvBkOZpNA4LXSiUNDhpsdhC8RFRoPjb+pGaOqWchG0RlvmnYNI98+nZQNR1HTpqirQln4/Tmo+hnRkg2hlvmKa9nEKHshnyhhl/MXOik84BczUYs+GUP+ISwJlgNYd/QkeDAD+8AxFVF2ewoaFxlXweUrHS0mtRPz/bCTGtnbSh0GNTuj3qiTKD9n6krD92r6P2nTpyjBVm/oTRjHFoAYb+PLz7WPGOG2fpTT5T54mubiIEvAqfbbbjI2Tk2NP5bRcbQX+vXCopGYgIiu19fBoDo038B25rnY="
-  key:
-    secure: "XVWj99QCH433E3nDhy2NNTfy3qSP9Rz02EF9GBAuoUlCgADLP1dtonwuiLxYfC2G6UJ7ERPPq3zy11NhdskBXC/JscGHCo8Os08uXa7oNnL8F+JbOzNMx3LgRV3I4IYUV3ExyyWj6T8npmVP1FRt8iYxCDqR+NdZqPgzpMKgE133Esn/u/haWGo8w6sy0nLEKYUwTflUS7vh8dxC7EtRnISdVWg2qJxvdyLvC2tA/1zuntmanac861EMgOBktlOPo4qLByjLIuLf8q6kfFr79kZFVUxsYqzIuOw4N1LnoTIxxUlx9a52M+MmKwsrh237kVC5GmmXhUN/bnuGXCUO0ZmYRBLwsEa8u21o41a/LwdxQavkR10fBpzI+3J1VRtPmov9rIAxqYTz6kA7KSQSTt+X6eS7JcM+Btj+IBBiONrQSAYJPJMU9vZLa1Yi72gldtnjMbQ7W/lnHVNgNjIF3VQtD7VnU64QgjVbppakA6bEO/Ruxjf8QWwUGLDzWleFlMlI9ZLgFltNC/0EjBgoWtq9JszAXDmp3g6Lnkxp79xQFmo3GwPWdmDQ+HM1kHi0C8u4FxaSXJCYdBLwoQdGoQ8QfckuWX/h4MSxokwAPBX5GU4ATqAtZHQZjYNF5TseyeR4DlpzZrV/IKFqLPjD+BVzdeQNBWaZJdncWgu9ucM="
+  - provider: script
+    script: curl --ftp-create-dirs -T build/default/qtgsettings-artifacts.tar.gz -u $FTP_USER:$FTP_PASSWORD $FTP_URL/artifacts/master/qtgsettings-artifacts.tar.gz
+    skip_cleanup: true
+    on:
+      branch: master
+      condition: "$CC = gcc"
+  - provider: script
+    script: curl --ftp-create-dirs -T build/default/qtgsettings-artifacts.tar.gz -u $FTP_USER:$FTP_PASSWORD $FTP_URL/artifacts/develop/qtgsettings-artifacts.tar.gz
+    skip_cleanup: true
+    on:
+      branch: develop
+      condition: "$CC = gcc"
 
 notifications:
   email: false
