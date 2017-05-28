@@ -26,12 +26,12 @@
 #include "qmlgsettings.h"
 #include "qmlgsettingsschema.h"
 
-class QtGSettingsPlugin : public QQmlExtensionPlugin
+class QtGSettingsPlugin : public QQmlExtensionPlugin // clazy:exclude=ctor-missing-parent-argument
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 public:
-    void registerTypes(const char *uri)
+    void registerTypes(const char *uri) override
     {
         // @uri Liri.GSettings
         Q_ASSERT(QLatin1String(uri) == QLatin1String("QtGSettings"));
