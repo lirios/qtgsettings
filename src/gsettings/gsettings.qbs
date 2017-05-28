@@ -19,7 +19,7 @@ LiriModule {
         return true;
     }
 
-    cpp.defines: base.concat(["QT_NO_KEYWORDS"])
+    Qt.core.enableKeywords: false
 
     create_headers.headersMap: ({
         "qgsettings.h": "QGSettings",
