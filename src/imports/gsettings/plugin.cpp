@@ -38,8 +38,8 @@ public:
 
         qmlRegisterType<QmlGSettings>(uri, 1, 0, "GSettings");
         qmlRegisterUncreatableType<QmlGSettingsSchema>(
-                uri, 1, 0, "GSettingsSchema",
-                QStringLiteral("Cannot instantiate GSettingsSchema objects"));
+            uri, 1, 0, "GSettingsSchema",
+            QStringLiteral("Cannot instantiate GSettingsSchema objects"));
     }
 };
 

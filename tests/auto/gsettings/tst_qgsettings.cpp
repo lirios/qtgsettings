@@ -51,8 +51,7 @@ private Q_SLOTS:
 
         settings = new QGSettings(QLatin1String("io.liri.gsettings.test"),
                                   QLatin1String("/io/liri/gsettings/test/"));
-        QVERIFY2(settings->isValid(),
-                 "Settings for io.liri.gsettings.test must be valid");
+        QVERIFY2(settings->isValid(), "Settings for io.liri.gsettings.test must be valid");
     }
 
     void cleanupTestCase()
@@ -115,7 +114,8 @@ private Q_SLOTS:
 
     void readStringList()
     {
-        QStringList cmpValue = QStringList() << QLatin1String("one") << QLatin1String("two") << QLatin1String("three");
+        QStringList cmpValue = QStringList()
+            << QLatin1String("one") << QLatin1String("two") << QLatin1String("three");
         QVariant value = settings->defaultValue(QLatin1String("testStringList"));
         QCOMPARE(value.toStringList(), cmpValue);
     }
@@ -148,7 +148,8 @@ private Q_SLOTS:
         QTest::newRow("double") << "testDouble" << QVariant(69.42);
         QTest::newRow("string") << "testString" << QVariant(QLatin1String("hello"));
         QTest::newRow("choices") << "testChoices" << QVariant(QLatin1String("three"));
-        QStringList stringList = QStringList() << QLatin1String("another") << QLatin1String("value");
+        QStringList stringList = QStringList()
+            << QLatin1String("another") << QLatin1String("value");
         QTest::newRow("string-list") << "testStringList" << QVariant(stringList);
         QMap<QString, QVariant> stringMap;
         stringMap.insert(QLatin1String("another-key1"), QLatin1String("one"));
@@ -175,9 +176,10 @@ private Q_SLOTS:
         keys.sort();
 
         QStringList cmpKeys = QStringList()
-                << QLatin1String("testBoolean") << QLatin1String("testInteger") << QLatin1String("testDouble")
-                << QLatin1String("testString") << QLatin1String("testChoices") << QLatin1String("testStringList")
-                << QLatin1String("testStringMap") << QLatin1String("testIntegerMap");
+            << QLatin1String("testBoolean") << QLatin1String("testInteger")
+            << QLatin1String("testDouble") << QLatin1String("testString")
+            << QLatin1String("testChoices") << QLatin1String("testStringList")
+            << QLatin1String("testStringMap") << QLatin1String("testIntegerMap");
         cmpKeys.sort();
 
         QCOMPARE(keys, cmpKeys);
@@ -205,7 +207,8 @@ private Q_SLOTS:
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings(QLatin1String("io.liri.gsettings.invalid.test"));
+        QGSettings *invalidSettings =
+            new QGSettings(QLatin1String("io.liri.gsettings.invalid.test"));
         QVERIFY2(!invalidSettings->isValid(),
                  "Settings for io.liri.gsettings.invalidtest must not be valid");
         invalidSettings->deleteLater();
@@ -215,8 +218,9 @@ private Q_SLOTS:
     {
         QSKIP("Skipped because gio crashes");
 
-        QGSettings *invalidSettings = new QGSettings(QLatin1String("io.liri.gsettings.test"),
-                                                     QLatin1String("/io/liri/gsettings/invalid/test/"));
+        QGSettings *invalidSettings =
+            new QGSettings(QLatin1String("io.liri.gsettings.test"),
+                           QLatin1String("/io/liri/gsettings/invalid/test/"));
         QVERIFY2(!invalidSettings->isValid(),
                  "Path /io/liri/gsettings/invalid/test must not be found");
         invalidSettings->deleteLater();

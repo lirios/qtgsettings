@@ -27,8 +27,7 @@
 
 #include <Qt5GSettings/qtgsettingsglobal.h>
 
-namespace QtGSettings
-{
+namespace QtGSettings {
 
 class QGSettingsPrivate;
 

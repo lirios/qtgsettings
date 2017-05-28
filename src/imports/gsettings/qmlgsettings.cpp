@@ -29,14 +29,20 @@
 using namespace QtGSettings;
 
 QmlGSettings::QmlGSettings(QObject *parent)
-        : QQmlPropertyMap(this, parent), m_schema(new QmlGSettingsSchema(this)),
-          m_settings(Q_NULLPTR)
+    : QQmlPropertyMap(this, parent)
+    , m_schema(new QmlGSettingsSchema(this))
+    , m_settings(Q_NULLPTR)
 {
 }
 
-QmlGSettingsSchema *QmlGSettings::schema() const { return m_schema; }
+QmlGSettingsSchema *QmlGSettings::schema() const
+{
+    return m_schema;
+}
 
-void QmlGSettings::classBegin() {}
+void QmlGSettings::classBegin()
+{
+}
 
 void QmlGSettings::componentComplete()
 {
