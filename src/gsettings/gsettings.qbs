@@ -54,10 +54,9 @@ LiriModule {
     Export {
         Depends { name: "cpp" }
         Depends { name: "Qt.core" }
+        Depends { name: "glib"; submodules: ["gio", "gobject"] }
 
         cpp.defines: product.projectFileUpdateDefines
         cpp.includePaths: product.generatedHeadersDir
-        // FIXME: For some reasone the above instruction is not enough
-        cpp.dynamicLibraries: ["glib-2.0", "gio-2.0", "gobject-2.0"]
     }
 }
