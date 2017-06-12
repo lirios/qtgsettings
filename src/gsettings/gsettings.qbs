@@ -1,62 +1,63 @@
 import qbs 1.0
 import qbs.Probes
+import "../../qbs/shared/imports/LiriUtils.js" as LiriUtils
 
-LiriModule {
+LiriModuleProject {
+    id: root
+
     name: "Qt5GSettings"
+    moduleName: "Qt5GSettings"
+    description: "Qt-style wrapper for GSettings"
 
-    targetName: "Qt5GSettings"
-    version: "1.0.0"
+    resolvedProperties: ({
+        Depends: [{ name: LiriUtils.quote("Qt.core") },
+                  { name: LiriUtils.quote("glib.gio") },
+                  { name: LiriUtils.quote("glib.gobject") }],
+    })
 
-    Depends { name: "Qt.core" }
-    Depends { name: "glib"; submodules: ["gio", "gobject"] }
+    pkgConfigDependencies: ["Qt5Core", "gio-2.0"]
 
-    condition: {
-        if (!glib.gio.found || !glib.gobject) {
-            console.error("glib-2.0 is required to build " + targetName);
-            return false;
+    cmakeDependencies: ({ "Qt5Core": "5.6.0" })
+    cmakeLinkLibraries: ["Qt5::Core"]
+
+    LiriHeaders {
+        name: root.headersName
+        sync.module: root.moduleName
+
+        Group {
+            name: "Headers"
+            files: "**/*.h"
+            fileTags: ["hpp_syncable"]
         }
-
-        return true;
     }
 
-    Qt.core.enableKeywords: false
+    LiriModule {
+        name: root.moduleName
+        targetName: root.targetName
+        version: "1.0.0"
 
-    create_headers.headersMap: ({
-        "qgsettings.h": "QGSettings",
-    })
-
-    create_pkgconfig.name: "Qt GSettings"
-    create_pkgconfig.description: "Qt-style wrapper for GSettings"
-    create_pkgconfig.version: project.version
-    create_pkgconfig.dependencies: ["Qt5Core", "gio-2.0"]
-
-    create_cmake.version: project.version
-    create_cmake.dependencies: ({
-        "Qt5Core": "5.6"
-    })
-    create_cmake.linkLibraries: ["Qt5::Core"]
-
-    files: ["*.cpp"]
-
-    Group {
-        name: "Headers"
-        files: ["*.h"]
-        excludeFiles: ["*_p.h"]
-        fileTags: ["public_headers"]
-    }
-
-    Group {
-        name: "Private Headers"
-        files: ["*_p.h"]
-        fileTags: ["private_headers"]
-    }
-
-    Export {
-        Depends { name: "cpp" }
+        Depends { name: root.headersName }
         Depends { name: "Qt.core" }
         Depends { name: "glib"; submodules: ["gio", "gobject"] }
 
-        cpp.defines: product.projectFileUpdateDefines
-        cpp.includePaths: product.generatedHeadersDir
+        condition: {
+            if (!glib.gio.found || !glib.gobject) {
+                console.error("glib-2.0 is required to build " + targetName);
+                return false;
+            }
+
+            return true;
+        }
+
+        Qt.core.enableKeywords: false
+
+        files: ["*.cpp", "*.h"]
+
+        Export {
+            Depends { name: "cpp" }
+            Depends { name: root.headersName }
+            Depends { name: "Qt.core" }
+            Depends { name: "glib"; submodules: ["gio", "gobject"] }
+        }
     }
 }
