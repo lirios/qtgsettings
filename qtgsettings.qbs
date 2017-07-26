@@ -12,8 +12,6 @@ Project {
 
     minimumQbsVersion: "1.8"
 
-    qbsSearchPaths: ["qbs/shared"]
-
     references: [
         "src/deployment.qbs",
         "src/gsettings/gsettings.qbs",

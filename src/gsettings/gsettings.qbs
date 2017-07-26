@@ -1,6 +1,6 @@
 import qbs 1.0
 import qbs.Probes
-import "../../qbs/shared/imports/LiriUtils.js" as LiriUtils
+import LiriUtils
 
 LiriModuleProject {
     id: root
