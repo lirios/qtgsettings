@@ -3,7 +3,7 @@ import qbs 1.0
 Project {
     name: "QtGSettings"
 
-    readonly property string version: "1.0.0"
+    readonly property string version: "1.1.0"
     readonly property var versionParts: version.split('.').map(function(part) { return parseInt(part); })
 
     property bool autotestEnabled: false
