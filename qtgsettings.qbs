@@ -10,7 +10,7 @@ Project {
     property stringList autotestArguments: []
     property stringList autotestWrapper: []
 
-    minimumQbsVersion: "1.8"
+    minimumQbsVersion: "1.8.0"
 
     references: [
         "src/deployment.qbs",
