@@ -59,6 +59,10 @@ for more deployment-related parameters.
 If you specify `qbs.installRoot` you might need to prefix the entire line with `sudo`,
 depending on whether you have permissions to write there or not.
 
+You can also specify the following options:
+
+ * `projects.QtGSettings.useStaticAnalyzer:true` to enable the Clang static analyzer
+
 ## Licensing
 
 Licensed under the terms of the GNU Lesser General Public License version 3.
