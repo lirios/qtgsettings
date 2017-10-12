@@ -45,8 +45,8 @@ public:
         : schemaId(schemaId)
         , path(path)
         , valid(false)
-        , settings(Q_NULLPTR)
-        , schema(Q_NULLPTR)
+        , settings(nullptr)
+        , schema(nullptr)
     {
         if (path.isEmpty())
             settings = g_settings_new(schemaId.toUtf8().constData());
@@ -54,7 +54,7 @@ public:
             settings =
                 g_settings_new_with_path(schemaId.toUtf8().constData(), path.toUtf8().constData());
         if (settings) {
-            g_object_get(settings, "settings-schema", &schema, Q_NULLPTR);
+            g_object_get(settings, "settings-schema", &schema, nullptr);
             g_signal_connect(settings, "changed", G_CALLBACK(QGSettingsPrivate::settingChanged), q);
         }
 
@@ -253,7 +253,7 @@ QStringList QGSettings::schemas()
 {
     GSettingsSchemaSource *source = g_settings_schema_source_get_default();
     gchar **schemas;
-    g_settings_schema_source_list_schemas(source, true, &schemas, Q_NULLPTR);
+    g_settings_schema_source_list_schemas(source, true, &schemas, nullptr);
     QStringList result;
     for (int i = 0; schemas[i]; i++)
         result.append(QString::fromUtf8(schemas[i]));

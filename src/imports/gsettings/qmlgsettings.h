@@ -41,15 +41,15 @@ public:
 
     QmlGSettingsSchema *schema() const;
 
-    void classBegin() Q_DECL_OVERRIDE;
-    void componentComplete() Q_DECL_OVERRIDE;
+    void classBegin() override;
+    void componentComplete() override;
 
 Q_SIGNALS:
     void schemaChanged();
     void settingsChanged();
 
 protected:
-    QVariant updateValue(const QString &key, const QVariant &input) Q_DECL_OVERRIDE;
+    QVariant updateValue(const QString &key, const QVariant &input) override;
 
 private:
     QmlGSettingsSchema *m_schema;

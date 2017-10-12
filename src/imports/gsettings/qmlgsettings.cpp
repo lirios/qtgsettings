@@ -31,7 +31,7 @@ using namespace QtGSettings;
 QmlGSettings::QmlGSettings(QObject *parent)
     : QQmlPropertyMap(this, parent)
     , m_schema(new QmlGSettingsSchema(this))
-    , m_settings(Q_NULLPTR)
+    , m_settings(nullptr)
 {
 }
 

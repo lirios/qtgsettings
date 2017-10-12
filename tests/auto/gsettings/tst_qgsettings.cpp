@@ -33,7 +33,7 @@ class TestQGSettings : public QObject
 public:
     TestQGSettings(QObject *parent = 0)
         : QObject(parent)
-        , settings(Q_NULLPTR)
+        , settings(nullptr)
     {
     }
 

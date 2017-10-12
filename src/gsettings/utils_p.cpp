@@ -82,7 +82,7 @@ QString toCamelCase(const gchar *name)
  */
 gchar *fromCamelCase(const QString &name)
 {
-    GString *string = g_string_new(Q_NULLPTR);
+    GString *string = g_string_new(nullptr);
 
     QByteArray bytes = name.toLatin1();
     for (int i = 0; i < bytes.size(); i++) {
