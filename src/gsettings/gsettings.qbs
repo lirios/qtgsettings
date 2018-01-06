@@ -40,15 +40,6 @@ LiriModuleProject {
         Depends { name: "Qt.core" }
         Depends { name: "glib"; submodules: ["gio", "gobject"] }
 
-        condition: {
-            if (!glib.gio.found || !glib.gobject) {
-                console.error("glib-2.0 is required to build " + targetName);
-                return false;
-            }
-
-            return true;
-        }
-
         Qt.core.enableKeywords: false
 
         files: ["*.cpp", "*.h"]

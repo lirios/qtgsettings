@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Qt GSettings.
  *
- * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2018 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2013 Canonical Ltd.
  *
  * $BEGIN_LICENSE:LGPL3$
