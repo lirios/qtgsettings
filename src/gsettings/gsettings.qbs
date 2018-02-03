@@ -36,6 +36,20 @@ LiriModuleProject {
         targetName: root.targetName
         version: "1.0.0"
 
+        condition: {
+            if (!glib.gio.found) {
+                console.error("gio is required to build " + targetName);
+                return false;
+            }
+
+            if (!glib.gobject.found) {
+                console.error("gobject is required to build " + targetName);
+                return false;
+            }
+
+            return true;
+        }
+
         Depends { name: root.headersName }
         Depends { name: "Qt.core" }
         Depends { name: "glib"; submodules: ["gio", "gobject"] }
