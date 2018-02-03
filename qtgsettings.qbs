@@ -6,6 +6,8 @@ Project {
     readonly property string version: "1.1.0"
     readonly property var versionParts: version.split('.').map(function(part) { return parseInt(part); })
 
+    readonly property string minimumQtVersion: "5.8.0"
+
     property bool useStaticAnalyzer: false
 
     property bool autotestEnabled: false

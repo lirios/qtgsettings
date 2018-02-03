@@ -17,7 +17,7 @@ LiriModuleProject {
 
     pkgConfigDependencies: ["Qt5Core", "gio-2.0"]
 
-    cmakeDependencies: ({ "Qt5Core": "5.6.0" })
+    cmakeDependencies: ({ "Qt5Core": project.minimumQtVersion })
     cmakeLinkLibraries: ["Qt5::Core"]
 
     LiriHeaders {
@@ -51,7 +51,7 @@ LiriModuleProject {
         }
 
         Depends { name: root.headersName }
-        Depends { name: "Qt.core" }
+        Depends { name: "Qt.core"; versionAtLeast: project.minimumQtVersion }
         Depends { name: "glib"; submodules: ["gio", "gobject"] }
 
         Qt.core.enableKeywords: false
@@ -61,7 +61,7 @@ LiriModuleProject {
         Export {
             Depends { name: "cpp" }
             Depends { name: root.headersName }
-            Depends { name: "Qt.core" }
+            Depends { name: "Qt.core"; versionAtLeast: project.minimumQtVersion }
             Depends { name: "glib"; submodules: ["gio", "gobject"] }
         }
     }
