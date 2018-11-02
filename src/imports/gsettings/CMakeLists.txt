@@ -1,0 +1,18 @@
+liri_add_qml_plugin(qtgsettings
+    MODULE_PATH
+        "QtGSettings"
+    SOURCES
+        plugin.cpp
+        qmlgsettings.cpp
+        qmlgsettings.h
+        qmlgsettingsschema.cpp
+        qmlgsettingsschema.h
+    QML_FILES
+        qmldir
+        plugins.qmltypes
+    DEFINES
+        QT_NO_CAST_FROM_ASCII
+        QT_NO_FOREACH
+    PUBLIC_LIBRARIES
+        Liri::Qt5GSettings
+)

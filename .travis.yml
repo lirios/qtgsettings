@@ -26,13 +26,13 @@ script:
 
 deploy:
   - provider: script
-    script: .travis/deploy.sh build/default/qtgsettings-artifacts.tar.gz
+    script: .travis/deploy.sh build/artifacts/qtgsettings-artifacts.tar.gz
     skip_cleanup: true
     on:
       branch: master
       condition: "$CC = gcc) && ($TRAVIS_PULL_REQUEST = false"
   - provider: script
-    script: .travis/deploy.sh build/default/qtgsettings-artifacts.tar.gz
+    script: .travis/deploy.sh build/artifacts/qtgsettings-artifacts.tar.gz
     skip_cleanup: true
     on:
       branch: develop
