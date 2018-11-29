@@ -21,9 +21,6 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 ## Liri specific setup common for all modules:
 include(LiriSetup)
 
-## Packaging:
-include(LiriCPack)
-
 ## Find Qt 5:
 find_package(Qt5 "${QT_MIN_VERSION}"
     CONFIG REQUIRED
