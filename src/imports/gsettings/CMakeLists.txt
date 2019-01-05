@@ -1,6 +1,8 @@
 liri_add_qml_plugin(qtgsettings
     MODULE_PATH
         "QtGSettings"
+    VERSION
+        "1.0"
     SOURCES
         plugin.cpp
         qmlgsettings.cpp
@@ -9,7 +11,6 @@ liri_add_qml_plugin(qtgsettings
         qmlgsettingsschema.h
     QML_FILES
         qmldir
-        plugins.qmltypes
     DEFINES
         QT_NO_CAST_FROM_ASCII
         QT_NO_FOREACH
