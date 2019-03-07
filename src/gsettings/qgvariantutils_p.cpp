@@ -80,7 +80,7 @@ QVariant toQVariant(GVariant *value)
         } else if (g_variant_is_of_type(value, G_VARIANT_TYPE_BYTESTRING)) {
             return QVariant(QByteArray(g_variant_get_bytestring(value)));
         } else if (g_variant_is_of_type(value, G_VARIANT_TYPE("a{ss}"))) {
-            QMap<QString, QVariant> stringMap;
+            QMultiMap<QString, QVariant> stringMap;
 
             GVariantIter iter;
             g_variant_iter_init(&iter, value);
@@ -92,7 +92,7 @@ QVariant toQVariant(GVariant *value)
 
             return stringMap;
         } else if (g_variant_is_of_type(value, G_VARIANT_TYPE("a{si}"))) {
-            QMap<QString, QVariant> intMap;
+            QMultiMap<QString, QVariant> intMap;
 
             GVariantIter iter;
             g_variant_iter_init(&iter, value);
