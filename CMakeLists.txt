@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 
 project("QtGSettings"
-    VERSION "1.1.0"
+    VERSION "1.3.0"
     DESCRIPTION "Qt style API for GSettings"
     LANGUAGES CXX C
 )
