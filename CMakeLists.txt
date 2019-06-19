@@ -34,7 +34,7 @@ find_package(Qt5 "${QT_MIN_VERSION}"
 ## Add subdirectories:
 add_subdirectory(src/gsettings)
 add_subdirectory(src/imports/gsettings)
-if(BUILD_TESTING)
+if(LIRI_BUILD_TESTING)
     if(TARGET Qt5GSettings)
         add_subdirectory(tests/auto/gsettings)
     endif()
