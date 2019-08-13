@@ -204,7 +204,7 @@ QVariantList QGSettings::choices(const QString &key) const
     GVariant *value;
     g_variant_get(range, "(&sv)", &type, &value);
 
-    if (g_str_equal(type, "enum")) {
+    if (g_str_equal(type, "enum") || g_str_equal(type, "flags")) {
         GVariantIter iter;
         g_variant_iter_init(&iter, value);
 
