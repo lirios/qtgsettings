@@ -33,8 +33,8 @@ class QmlGSettingsSchema : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid NOTIFY validChanged)
-    Q_PROPERTY(QString id MEMBER m_schemaId WRITE setId NOTIFY idChanged)
-    Q_PROPERTY(QString path MEMBER m_path WRITE setPath NOTIFY pathChanged)
+    Q_PROPERTY(QString id READ id WRITE setId NOTIFY idChanged)
+    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(QStringList keys READ keys NOTIFY keysChanged)
 public:
     QmlGSettingsSchema(QObject *parent = 0);
