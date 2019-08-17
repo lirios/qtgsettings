@@ -149,13 +149,14 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
             GVariantBuilder builder;
             g_variant_builder_init(&builder, G_VARIANT_TYPE("a{ss}"));
 
-            QMapIterator<QString, QVariant> it(variant.toMap());
-            while (it.hasNext()) {
-                it.next();
-
+            QVariantMap map = variant.toMap();
+            QVariantMap::const_iterator it = map.constBegin();
+            while (it != map.constEnd()) {
                 QByteArray key = it.key().toUtf8();
                 QByteArray value = it.value().toByteArray();
                 g_variant_builder_add(&builder, "{ss}", key.constData(), value.constData());
+
+                ++it;
             }
 
             return g_variant_builder_end(&builder);
@@ -163,13 +164,14 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
             GVariantBuilder builder;
             g_variant_builder_init(&builder, G_VARIANT_TYPE("a{si}"));
 
-            QMapIterator<QString, QVariant> it(variant.toMap());
-            while (it.hasNext()) {
-                it.next();
-
+            QVariantMap map = variant.toMap();
+            QVariantMap::const_iterator it = map.constBegin();
+            while (it != map.constEnd()) {
                 QByteArray key = it.key().toUtf8();
                 int value = it.value().toInt();
                 g_variant_builder_add(&builder, "{si}", key.constData(), value);
+
+                ++it;
             }
 
             return g_variant_builder_end(&builder);
