@@ -106,6 +106,18 @@ bool QGSettings::isValid() const
     return d->valid;
 }
 
+QString QGSettings::id() const
+{
+    Q_D(const QGSettings);
+    return d->schemaId;
+}
+
+QString QGSettings::path() const
+{
+    Q_D(const QGSettings);
+    return d->path;
+}
+
 QVariant QGSettings::value(const QString &key) const
 {
     Q_D(const QGSettings);

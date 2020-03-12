@@ -35,11 +35,17 @@ class QT5GSETTINGS_EXPORT QGSettings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid CONSTANT)
+    Q_PROPERTY(QString id READ id CONSTANT)
+    Q_PROPERTY(QString path READ path CONSTANT)
 public:
     QGSettings(const QString &schemaId, const QString &path = QString(), QObject *parent = 0);
     ~QGSettings();
 
     bool isValid() const;
+
+    QString id() const;
+
+    QString path() const;
 
     QVariant value(const QString &key) const;
     void setValue(const QString &key, const QVariant &value);
