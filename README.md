@@ -3,7 +3,7 @@ Qt GSettings
 
 [![License](https://img.shields.io/badge/license-LGPLv3.0-blue.svg)](http://www.gnu.org/licenses/lgpl.txt)
 [![GitHub release](https://img.shields.io/github/release/lirios/qtgsettings.svg)](https://github.com/lirios/qtgsettings)
-[![Build Status](https://travis-ci.org/lirios/qtgsettings.svg?branch=develop)](https://travis-ci.org/lirios/qtgsettings)
+[![CI](https://github.com/lirios/qtgsettings/workflows/CI/badge.svg?branch=develop)](https://github.com/lirios/qtgsettings/actions?query=workflow%3ACI)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/qtgsettings.svg)](https://github.com/lirios/qtgsettings/issues)
 
 Qt-style API to wrap GSettings.
