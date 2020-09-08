@@ -31,6 +31,9 @@ find_package(Qt5 "${QT_MIN_VERSION}"
         QuickTest
 )
 
+## Treat warnings as errors:
+add_compile_options(-Wall -Wextra -Werror)
+
 ## Add subdirectories:
 add_subdirectory(src/gsettings)
 add_subdirectory(src/imports/gsettings)

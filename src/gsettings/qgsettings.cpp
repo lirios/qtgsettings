@@ -142,7 +142,8 @@ QVariant QGSettings::value(const QString &key) const
 void QGSettings::setValue(const QString &key, const QVariant &value)
 {
     if (!trySetValue(key, value)) {
-        qCWarning(QTGSETTINGS) << "Unable to set value for key" << key;
+        qCWarning(QTGSETTINGS, "Unable to set value for key \"%s\"",
+                  qPrintable(key));
         return;
     }
 }

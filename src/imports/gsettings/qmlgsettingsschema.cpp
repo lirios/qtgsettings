@@ -47,7 +47,7 @@ QString QmlGSettingsSchema::id() const
 void QmlGSettingsSchema::setId(const QString &id)
 {
     if (!m_schemaId.isEmpty()) {
-        qCWarning(QTGSETTINGS) << "Schema identifier can only be set once, at creation time";
+        qCWarning(QTGSETTINGS, "Schema identifier can only be set once, at creation time");
         return;
     }
 
@@ -63,7 +63,7 @@ QString QmlGSettingsSchema::path() const
 void QmlGSettingsSchema::setPath(const QString &path)
 {
     if (!m_path.isEmpty()) {
-        qCWarning(QTGSETTINGS) << "Schema path can only be set once, at creation time";
+        qCWarning(QTGSETTINGS, "Schema path can only be set once, at creation time");
         return;
     }
 

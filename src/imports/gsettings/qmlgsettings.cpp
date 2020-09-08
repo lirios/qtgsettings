@@ -90,6 +90,7 @@ QVariant QmlGSettings::updateValue(const QString &key, const QVariant &input)
         return input;
 
     // Unable to set value, return old value
-    qCWarning(QTGSETTINGS) << "Unable to set value for" << key;
+    qCWarning(QTGSETTINGS, "Unable to set value for \"%s\"",
+              qPrintable(key));
     return m_settings->value(key);
 }
