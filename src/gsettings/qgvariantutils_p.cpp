@@ -176,6 +176,7 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
 
             return g_variant_builder_end(&builder);
         }
+        break;
     default:
         return nullptr;
     }
