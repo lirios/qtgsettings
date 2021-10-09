@@ -15,8 +15,6 @@ liri_add_module(Qt5GSettings
         qgvariantutils_p.h
         utils_p.cpp
         utils_p.h
-    FORWARDING_HEADERS
-        QGSettings
     PRIVATE_HEADERS
         qgvariantutils_p.h
     DEFINES
@@ -31,3 +29,5 @@ liri_add_module(Qt5GSettings
         Qt5Core
         gio-2.0
 )
+
+liri_finalize_module(Qt5GSettings)

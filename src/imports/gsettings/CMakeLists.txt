@@ -17,3 +17,5 @@ liri_add_qml_plugin(qtgsettings
     PUBLIC_LIBRARIES
         Liri::Qt5GSettings
 )
+
+liri_finalize_qml_plugin(qtgsettings)
