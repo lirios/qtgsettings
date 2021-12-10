@@ -23,7 +23,7 @@
 
 #include <QtQuickTest/QtQuickTest>
 
-static bool s_backend = qputenv("GSETTINGS_BACKEND", "memory");
+static bool s_backend = qputenv("GSETTINGS_BACKEND", QByteArrayLiteral("memory"));
 static bool s_schemaDir = qputenv("GSETTINGS_SCHEMA_DIR", QByteArrayLiteral(TEST_DATADIR));
 
 QUICK_TEST_MAIN(qmlgsettings)
