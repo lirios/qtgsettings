@@ -17,7 +17,7 @@ curdir=$(dirname `readlink -f $0`)
 
 mkdir -p /tmp/build-deps
 pushd /tmp/build-deps
-git clone git://github.com/liri-infra/ci-scripts
+git clone https://github.com/liri-infra/ci-scripts
 for repo in cmake-shared; do
     ./ci-scripts/build-liri $repo $branch
 done
