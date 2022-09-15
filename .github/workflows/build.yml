@@ -22,10 +22,10 @@ jobs:
           - gcc
           - clang
         container:
-          - suse-qt515
+          - ci-suse-qt515
     runs-on: ubuntu-latest
     container:
-      image: liridev/${{ matrix.container }}
+      image: kdeorg/${{ matrix.container }}
     steps:
       - name: Extract branch name
         id: extract_branch
@@ -41,7 +41,7 @@ jobs:
         id: qt_version
         shell: bash
         run: |
-          qtverid=`echo "${{ matrix.container }}" | sed -e 's,suse-qt,,g'`
+          qtverid=`echo "${{ matrix.container }}" | sed -e 's,ci-suse-qt,,g'`
           echo "##[set-output name=id;]${qtverid}"
       - uses: actions/checkout@v2
       - name: Build dependencies
