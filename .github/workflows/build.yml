@@ -17,5 +17,5 @@ on:
       - develop
 
 jobs:
-  linux:
-    uses: lirios/.github/.github/workflows/build-linux.yml@master
+  linux-qt5:
+    uses: lirios/.github/.github/workflows/build-linux-qt5.yml@master
