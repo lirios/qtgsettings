@@ -22,8 +22,9 @@
 
 #pragma once
 
-#include <QtQml/QQmlPropertyMap>
-#include <QtQml/QQmlParserStatus>
+#include <QQmlEngine>
+#include <QQmlPropertyMap>
+#include <QQmlParserStatus>
 
 namespace QtGSettings {
 class QGSettings;
@@ -36,8 +37,10 @@ class QmlGSettings : public QQmlPropertyMap, public QQmlParserStatus
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
     Q_PROPERTY(QmlGSettingsSchema *schema READ schema NOTIFY schemaChanged)
+    QML_NAMED_ELEMENT(GSettings)
+    Q_MOC_INCLUDE("qmlgsettingsschema.h")
 public:
-    QmlGSettings(QObject *parent = 0);
+    QmlGSettings(QObject *parent = nullptr);
 
     QmlGSettingsSchema *schema() const;
 

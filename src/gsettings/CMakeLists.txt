@@ -1,33 +1,24 @@
-find_package(GIO REQUIRED)
-
-liri_add_module(Qt5GSettings
+liri_add_module(Qt6GSettings
     DESCRIPTION
         "Qt style API for GSettings"
     MODULE_NAME
-        Qt5GSettings
+        Qt6GSettings
     VERSIONED_MODULE_NAME
-        Qt5GSettings
+        Qt6GSettings
     SOURCES
         logging_p.h
-        qgsettings.cpp
-        qgsettings.h
-        qgvariantutils_p.cpp
-        qgvariantutils_p.h
-        utils_p.cpp
-        utils_p.h
+        qgsettings.cpp qgsettings.h
+        qgvariantutils_p.cpp qgvariantutils_p.h
+        utils_p.cpp utils_p.h
     PRIVATE_HEADERS
         qgvariantutils_p.h
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-        QT_NO_KEYWORDS
     PUBLIC_LIBRARIES
-        Qt5::Core
+        Qt6::Core
     LIBRARIES
         PkgConfig::GIO
     PKGCONFIG_DEPENDENCIES
-        Qt5Core
+        Qt6Core
         gio-2.0
 )
 
-liri_finalize_module(Qt5GSettings)
+liri_finalize_module(Qt6GSettings)

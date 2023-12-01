@@ -25,13 +25,13 @@
 
 #include <QtCore/QObject>
 
-#include <Qt5GSettings/qt5gsettingsglobal.h>
+#include <Qt6GSettings/qt6gsettingsglobal.h>
 
 namespace QtGSettings {
 
 class QGSettingsPrivate;
 
-class QT5GSETTINGS_EXPORT QGSettings : public QObject
+class QT6GSETTINGS_EXPORT QGSettings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid CONSTANT)

@@ -31,7 +31,7 @@ namespace Utils {
 QVariant toQVariant(GVariant *value)
 {
     if (!value)
-        return QVariant(QVariant::Invalid);
+        return QVariant();
 
     switch (g_variant_classify(value)) {
     case G_VARIANT_CLASS_BOOLEAN:
@@ -90,7 +90,7 @@ QVariant toQVariant(GVariant *value)
             while (g_variant_iter_next(&iter, "{&s&s}", &key, &val))
                 stringMap.insert(QString::fromUtf8(key), QVariant(QString::fromUtf8(val)));
 
-            return stringMap;
+            return QVariant::fromValue(stringMap);
         } else if (g_variant_is_of_type(value, G_VARIANT_TYPE("a{si}"))) {
             QMultiMap<QString, QVariant> intMap;
 
@@ -102,13 +102,13 @@ QVariant toQVariant(GVariant *value)
             while (g_variant_iter_next(&iter, "{&si}", &key, &val))
                 intMap.insert(QString::fromUtf8(key), QVariant(val));
 
-            return intMap;
+            return QVariant::fromValue(intMap);
         }
     default:
         break;
     }
 
-    return QVariant(QVariant::Invalid);
+    return QVariant();
 }
 
 GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
@@ -139,7 +139,7 @@ GVariant *toGVariant(const GVariantType *type, const QVariant &variant)
             GVariantBuilder builder;
             g_variant_builder_init(&builder, G_VARIANT_TYPE_STRING_ARRAY);
             const QStringList list = variant.toStringList();
-            for (const QString &item : qAsConst(list))
+            for (const QString &item : std::as_const(list))
                 g_variant_builder_add(&builder, "s", item.toUtf8().constData());
 
             return g_variant_builder_end(&builder);

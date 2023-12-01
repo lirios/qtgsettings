@@ -1,21 +1,24 @@
-liri_add_qml_plugin(qtgsettings
-    MODULE_PATH
+ecm_add_qml_module(QtGSettingsQmlModule
+    URI
         "QtGSettings"
     VERSION
-        "1.0"
-    SOURCES
-        plugin.cpp
-        qmlgsettings.cpp
-        qmlgsettings.h
-        qmlgsettingsschema.cpp
-        qmlgsettingsschema.h
-    QML_FILES
-        qmldir
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-    PUBLIC_LIBRARIES
-        Liri::Qt5GSettings
+        "2.0"
+    GENERATE_PLUGIN_SOURCE
 )
 
-liri_finalize_qml_plugin(qtgsettings)
+target_sources(QtGSettingsQmlModule
+    PRIVATE
+        qmlgsettings.cpp qmlgsettings.h
+        qmlgsettingsschema.cpp qmlgsettingsschema.h
+)
+
+target_link_libraries(QtGSettingsQmlModule
+    PUBLIC
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Qml
+        Qt6::Quick
+        Liri::Qt6GSettings
+)
+
+ecm_finalize_qml_module(QtGSettingsQmlModule)

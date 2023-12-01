@@ -52,7 +52,7 @@ void QmlGSettingsSchema::setId(const QString &id)
     }
 
     m_schemaId = id;
-    emit idChanged();
+    Q_EMIT idChanged();
 }
 
 QString QmlGSettingsSchema::path() const
@@ -68,7 +68,7 @@ void QmlGSettingsSchema::setPath(const QString &path)
     }
 
     m_path = path;
-    emit pathChanged();
+    Q_EMIT pathChanged();
 }
 
 QStringList QmlGSettingsSchema::keys() const

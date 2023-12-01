@@ -22,8 +22,9 @@
 
 #pragma once
 
-#include <QtCore/QLoggingCategory>
-#include <QtCore/QObject>
+#include <QLoggingCategory>
+#include <QObject>
+#include <QQmlEngine>
 
 Q_DECLARE_LOGGING_CATEGORY(QTGSETTINGS)
 
@@ -36,8 +37,10 @@ class QmlGSettingsSchema : public QObject
     Q_PROPERTY(QString id READ id WRITE setId NOTIFY idChanged)
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(QStringList keys READ keys NOTIFY keysChanged)
+    QML_NAMED_ELEMENT(GSettingsSchema)
+    QML_UNCREATABLE("Cannot instantiate GSettingsSchema objects")
 public:
-    QmlGSettingsSchema(QObject *parent = 0);
+    QmlGSettingsSchema(QObject *parent = nullptr);
     ~QmlGSettingsSchema();
 
     bool isValid() const;
@@ -55,6 +58,7 @@ Q_SIGNALS:
     void keysChanged();
     void idChanged();
     void pathChanged();
+
 private:
     bool m_valid;
     QString m_schemaId;

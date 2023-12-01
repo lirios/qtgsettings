@@ -21,9 +21,9 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtTest 1.0
-import QtGSettings 1.0
+import QtQuick
+import QtTest
+import QtGSettings
 
 // Some tests start with a number to make sure order
 // of execution is respected, in fact we need to test
