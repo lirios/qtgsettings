@@ -23,7 +23,7 @@
 
 #include <QtTest/QtTest>
 
-#include <Qt5GSettings/QGSettings>
+#include <Qt6GSettings/QGSettings>
 
 using namespace QtGSettings;
 

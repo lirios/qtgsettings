@@ -1,10 +1,8 @@
-liri_add_test(tst_qmlgsettings
-    SOURCES
-        tst_qmlgsettings.cpp
-        tst_qmlgsettings.qml
-    DEFINES
-        TEST_DATADIR="${CMAKE_CURRENT_SOURCE_DIR}/../data"
-    LIBRARIES
-        Qt5::QuickTest
-        Liri::Qt5GSettings
+add_executable(tst_qmlgsettings
+    tst_qmlgsettings.cpp
+    tst_qmlgsettings.qml
 )
+
+target_compile_definitions(tst_qmlgsettings PRIVATE TEST_DATADIR="${CMAKE_CURRENT_SOURCE_DIR}/../data")
+
+target_link_libraries(tst_qmlgsettings PRIVATE Qt6::QuickTest Liri::Qt6GSettings)
